@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Princeton STEM Expo (PSE)</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>PSE</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule.html" class="nav-link">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="registration.html" class="nav-link active">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="resources.html" class="nav-link">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Registration</h1>
+                <p class="page-subtitle">Join the inaugural PSE 2025 - Register as an individual student or organize a team</p>
+                <div class="page-event-info">
+                    <div class="page-event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Saturday, September 27, 2025</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Princeton High School</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-content">
+            <div class="container">
+                <!-- Registration Status -->
+                <div class="content-section">
+                    <div class="feature-card" style="text-align: center; background: linear-gradient(135deg, #10b981, #059669); color: white;">
+                        <h2 style="color: white; margin-bottom: 1rem;">Inaugural Event - Registration is Now Open!</h2>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Be part of history! Secure your spot for the first-ever PSE on September 27, 2025 at Princeton High School</p>
+                        <div style="margin-top: 1.5rem;">
+                            <strong style="font-size: 1.2rem;">Early Bird Pricing Available Until March 1, 2025</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration Options -->
+                <div class="content-section">
+                    <h2>Choose Your Registration Type</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Individual Registration</h3>
+                            <p>Perfect for students who want to compete individually or be placed on a team with other individual registrants.</p>
+                            <ul style="text-align: left; margin: 1rem 0;">
+                                <li>Compete in all individual rounds</li>
+                                <li>Participate in team round with assigned teammates</li>
+                                <li>Access to all workshops and activities</li>
+                                <li>Lunch and refreshments included</li>
+                            </ul>
+                            <div class="pricing">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #2563eb;">$35</div>
+                                <div style="font-size: 0.9rem; color: #64748b;">Early Bird: $25</div>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Team Registration</h3>
+                            <p>Register as a pre-formed team of 4 students from the same school or organization.</p>
+                            <ul style="text-align: left; margin: 1rem 0;">
+                                <li>Compete as a team in team rounds</li>
+                                <li>Individual competition for all team members</li>
+                                <li>Team photo and recognition</li>
+                                <li>Coach/teacher receives materials packet</li>
+                            </ul>
+                            <div class="pricing">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #2563eb;">$120</div>
+                                <div style="font-size: 0.9rem; color: #64748b;">Early Bird: $80 (4 students)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <h3>School Group</h3>
+                            <p>Register multiple students and teams from your school with discounted group pricing.</p>
+                            <ul style="text-align: left; margin: 1rem 0;">
+                                <li>5+ students from same school</li>
+                                <li>Dedicated check-in and coordination</li>
+                                <li>School recognition opportunities</li>
+                                <li>Complimentary teacher/coach registration</li>
+                            </ul>
+                            <div class="pricing">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #2563eb;">$25/student</div>
+                                <div style="font-size: 0.9rem; color: #64748b;">Early Bird: $20/student</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration Form -->
+                <div class="content-section">
+                    <h2>Registration Form</h2>
+                    <div class="form-container">
+                        <form id="registrationForm">
+                            <div class="form-group">
+                                <label for="registrationType">Registration Type *</label>
+                                <select id="registrationType" name="registrationType" required>
+                                    <option value="">Select registration type</option>
+                                    <option value="individual">Individual Registration</option>
+                                    <option value="team">Team Registration (4 students)</option>
+                                    <option value="school">School Group (5+ students)</option>
+                                </select>
+                            </div>
+
+                            <!-- Student Information -->
+                            <h3>Student Information</h3>
+                            <div class="form-group">
+                                <label for="studentName">Student Full Name *</label>
+                                <input type="text" id="studentName" name="studentName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="grade">Grade Level *</label>
+                                <select id="grade" name="grade" required>
+                                    <option value="">Select grade</option>
+                                    <option value="3">3rd Grade</option>
+                                    <option value="4">4th Grade</option>
+                                    <option value="5">5th Grade</option>
+                                    <option value="6">6th Grade</option>
+                                    <option value="7">7th Grade</option>
+                                    <option value="8">8th Grade</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="school">School Name *</label>
+                                <input type="text" id="school" name="school" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="studentEmail">Student Email</label>
+                                <input type="email" id="studentEmail" name="studentEmail">
+                            </div>
+
+                            <!-- Parent/Guardian Information -->
+                            <h3>Parent/Guardian Information</h3>
+                            <div class="form-group">
+                                <label for="parentName">Parent/Guardian Name *</label>
+                                <input type="text" id="parentName" name="parentName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="parentEmail">Parent/Guardian Email *</label>
+                                <input type="email" id="parentEmail" name="parentEmail" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="parentPhone">Parent/Guardian Phone *</label>
+                                <input type="tel" id="parentPhone" name="parentPhone" required>
+                            </div>
+
+                            <!-- Emergency Contact -->
+                            <h3>Emergency Contact</h3>
+                            <div class="form-group">
+                                <label for="emergencyName">Emergency Contact Name *</label>
+                                <input type="text" id="emergencyName" name="emergencyName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emergencyPhone">Emergency Contact Phone *</label>
+                                <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emergencyRelation">Relationship to Student *</label>
+                                <input type="text" id="emergencyRelation" name="emergencyRelation" required>
+                            </div>
+
+                            <!-- Team Information (conditionally shown) -->
+                            <div id="teamInfo" style="display: none;">
+                                <h3>Team Information</h3>
+                                <div class="form-group">
+                                    <label for="teamName">Team Name</label>
+                                    <input type="text" id="teamName" name="teamName">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="coachName">Coach/Teacher Name</label>
+                                    <input type="text" id="coachName" name="coachName">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="coachEmail">Coach/Teacher Email</label>
+                                    <input type="email" id="coachEmail" name="coachEmail">
+                                </div>
+                            </div>
+
+                            <!-- Dietary Restrictions & Medical Info -->
+                            <h3>Additional Information</h3>
+                            <div class="form-group">
+                                <label for="dietary">Dietary Restrictions/Food Allergies</label>
+                                <textarea id="dietary" name="dietary" placeholder="Please list any dietary restrictions, food allergies, or special meal requirements"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="medical">Medical Conditions/Accommodations</label>
+                                <textarea id="medical" name="medical" placeholder="Please describe any medical conditions, learning accommodations, or special needs"></textarea>
+                            </div>
+
+                            <!-- T-shirt Size -->
+                            <div class="form-group">
+                                <label for="tshirtSize">T-shirt Size *</label>
+                                <select id="tshirtSize" name="tshirtSize" required>
+                                    <option value="">Select size</option>
+                                    <option value="YS">Youth Small</option>
+                                    <option value="YM">Youth Medium</option>
+                                    <option value="YL">Youth Large</option>
+                                    <option value="AS">Adult Small</option>
+                                    <option value="AM">Adult Medium</option>
+                                    <option value="AL">Adult Large</option>
+                                    <option value="AXL">Adult X-Large</option>
+                                </select>
+                            </div>
+
+                            <!-- Workshop Preferences -->
+                            <h3>Workshop Preferences</h3>
+                            <p>Select your preferred workshops for Session A and Session B. We'll do our best to accommodate preferences based on availability.</p>
+                            
+                            <div class="form-group">
+                                <label for="workshopA">Workshop Session A Preference</label>
+                                <select id="workshopA" name="workshopA">
+                                    <option value="">Select workshop</option>
+                                    <option value="robotics">Robotics & AI</option>
+                                    <option value="bioengineering">Bioengineering</option>
+                                    <option value="chemistry">Chemistry Lab</option>
+                                    <option value="space">Space Technology</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="workshopB">Workshop Session B Preference</label>
+                                <select id="workshopB" name="workshopB">
+                                    <option value="">Select workshop</option>
+                                    <option value="electronics">Electronics & Coding</option>
+                                    <option value="environmental">Environmental Science</option>
+                                    <option value="datascience">Data Science</option>
+                                    <option value="engineering">Engineering Design</option>
+                                </select>
+                            </div>
+
+                            <!-- Agreements -->
+                            <h3>Agreements & Permissions</h3>
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="liability" name="liability" required>
+                                    <label for="liability">I agree to the liability waiver and understand that participation is at my own risk. *</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="photography" name="photography">
+                                    <label for="photography">I give permission for photographs taken during the event to be used for promotional purposes.</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="communication" name="communication">
+                                    <label for="communication">I would like to receive updates about future PSE events and STEM opportunities.</label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Complete Registration</button>
+                            </div>
+
+                            <p style="font-size: 0.9rem; color: #64748b; text-align: center; margin-top: 1rem;">
+                                After submitting this form, you will receive payment instructions via email. Registration is not complete until payment is received.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Important Dates & Information -->
+                <div class="content-section">
+                    <h2>Important Dates & Deadlines</h2>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <h3><i class="fas fa-calendar-alt"></i> Registration Opens</h3>
+                            <p><strong>July 15, 2025</strong></p>
+                            <p>Online registration begins for all participants</p>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3><i class="fas fa-tag"></i> Early Bird Deadline</h3>
+                            <p><strong>August 15, 2025</strong></p>
+                            <p>Register by this date for discounted pricing</p>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3><i class="fas fa-clock"></i> Regular Registration</h3>
+                            <p><strong>August 16 - September 20, 2025</strong></p>
+                            <p>Standard pricing applies after early bird deadline</p>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Registration Closes</h3>
+                            <p><strong>September 20, 2025</strong></p>
+                            <p>Final deadline - no late registrations accepted</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eligibility & Requirements -->
+                <div class="content-section">
+                    <h2>Eligibility & Requirements</h2>
+                    
+                    <h3>Who Can Participate</h3>
+                    <ul>
+                        <li>Current elementary school students (grades 3-5)</li>
+                        <li>Current middle school students (grades 6-8)</li>
+                        <li>Students must be enrolled in school for the 2024-2025 academic year</li>
+                        <li>Homeschooled students are welcome</li>
+                    </ul>
+
+                    <h3>Required Documentation</h3>
+                    <ul>
+                        <li>Completed registration form with parent/guardian signature</li>
+                        <li>Proof of grade level (report card or school verification)</li>
+                        <li>Photo ID on day of event</li>
+                        <li>Completed liability waiver</li>
+                    </ul>
+
+                    <h3>Team Formation Rules</h3>
+                    <ul>
+                        <li>Teams must consist of exactly 4 students</li>
+                        <li>Team members can be from different grades but must be from the same school</li>
+                        <li>Individual registrants will be placed on teams with other individual participants</li>
+                        <li>Teams compete in the same division as their highest grade member</li>
+                    </ul>
+                </div>
+
+                <!-- Payment Information -->
+                <div class="content-section">
+                    <h2>Payment Information</h2>
+                    
+                    <h3>Payment Methods</h3>
+                    <ul>
+                        <li><strong>Online Payment:</strong> Credit card or PayPal (preferred method)</li>
+                        <li><strong>Check:</strong> Made payable to "Princeton STEM Expo"</li>
+                        <li><strong>School Purchase Order:</strong> Accepted for school group registrations</li>
+                    </ul>
+
+                    <h3>Refund Policy</h3>
+                    <ul>
+                        <li><strong>Full Refund:</strong> Cancellations before September 1, 2025</li>
+                        <li><strong>50% Refund:</strong> Cancellations September 2 - September 15, 2025</li>
+                        <li><strong>No Refund:</strong> Cancellations after September 15, 2025</li>
+                        <li><strong>Emergency Situations:</strong> Refunds considered on case-by-case basis</li>
+                    </ul>
+
+                    <h3>Financial Assistance</h3>
+                    <p>Limited scholarships are available for students with demonstrated financial need. Contact us at <a href="mailto:scholarships@princetonstemexpo.org">scholarships@princetonstemexpo.org</a> for more information.</p>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="content-section">
+                    <h2>Registration Questions?</h2>
+                    <p>If you have questions about registration, please don't hesitate to contact us:</p>
+                    
+                    <div class="feature-card" style="background: #f8fafc;">
+                        <h3>Registration Support</h3>
+                        <p><strong>Email:</strong> <a href="mailto:registration@princetonstemexpo.org">registration@princetonstemexpo.org</a></p>
+                        <p><strong>Phone:</strong> (609) 555-0123</p>
+                        <p><strong>Office Hours:</strong> Monday-Friday, 9:00 AM - 5:00 PM EST</p>
+                        <p>We typically respond to emails within 24 hours during business days.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Princeton STEM Expo</h3>
+                    <p>Empowering the next generation of STEM leaders through mathematics and innovation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@princetonstemexpo.org</p>
+                    <p>Phone: (609) 555-0123</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Princeton STEM Expo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Princeton STEM Expo (PSE) - Empowering Young Minds</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>PSE</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule.html" class="nav-link">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="registration.html" class="nav-link">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="resources.html" class="nav-link">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <canvas id="fractalCanvas" class="fractal-canvas"></canvas>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Princeton STEM Expo</h1>
+                    <p class="hero-tagline">Inaugural Competition - Empowering Young Minds Through Mathematics and STEM</p>
+                    <div class="hero-event-info">
+                        <div class="event-date-location">
+                            <div class="event-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Saturday, September 27, 2025</span>
+                            </div>
+                            <div class="event-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Princeton High School</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="hero-description">
+                        Join us for the inaugural Princeton STEM Expo - an exciting new annual STEM-focused event featuring mathematics competitions, 
+                        educational workshops, and inspiring speaker sessions designed for elementary and middle school students.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="registration.html" class="btn btn-primary">Register Now</a>
+                        <a href="about.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-graphic">
+                        <div class="math-symbols">
+                            <div class="symbol-wrapper" style="--angle: 0deg;">
+                                <span class="symbol">∑</span>
+                            </div>
+                            <div class="symbol-wrapper" style="--angle: 60deg;">
+                                <span class="symbol">π</span>
+                            </div>
+                            <div class="symbol-wrapper" style="--angle: 120deg;">
+                                <span class="symbol">∞</span>
+                            </div>
+                            <div class="symbol-wrapper" style="--angle: 180deg;">
+                                <span class="symbol">∫</span>
+                            </div>
+                            <div class="symbol-wrapper" style="--angle: 240deg;">
+                                <span class="symbol">√</span>
+                            </div>
+                            <div class="symbol-wrapper" style="--angle: 300deg;">
+                                <span class="symbol">Δ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">What Makes PSE Special</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>Math Competitions</h3>
+                        <p>Individual and team-based mathematics competitions designed to challenge and inspire students at all levels.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Interactive Workshops</h3>
+                        <p>Hands-on STEM workshops led by experts, covering cutting-edge topics in science, technology, and engineering.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <h3>Keynote Speakers</h3>
+                        <p>Inspiring talks from renowned STEM professionals, researchers, and innovators sharing their experiences.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Awards & Recognition</h3>
+                        <p>Celebrate achievements with awards ceremonies recognizing outstanding performance and innovation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Info Section -->
+        <section class="event-info">
+            <div class="container">
+                <div class="event-info-grid">
+                    <div class="event-details">
+                        <h2>Event Details</h2>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <h4>Date</h4>
+                                <p>September 27, 2025</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Princeton High School</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Participants</h4>
+                                <p>Elementary & Middle School Students</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Duration</h4>
+                                <p>Full Day Event</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <h2>Our Vision for PSE 2025</h2>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Expected Participants</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Target Schools</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Planned Workshops</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Expert Speakers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Team Section -->
+        <section class="team">
+            <div class="container">
+                <h2 class="section-title">The Team</h2>
+                <p class="section-subtitle">Meet the dedicated individuals who make PSE possible</p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Dr. Sarah Chen</h3>
+                        <p class="team-role">Event Director</p>
+                        <p class="team-bio">Mathematics Professor at Princeton University with 15 years of experience in competitive mathematics and STEM education.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Michael Rodriguez</h3>
+                        <p class="team-role">Competition Coordinator</p>
+                        <p class="team-bio">Former mathlete and current graduate student specializing in educational technology and student engagement.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Emily Johnson</h3>
+                        <p class="team-role">Workshop Director</p>
+                        <p class="team-bio">STEM educator and curriculum developer with a passion for hands-on learning and innovative teaching methods.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>David Park</h3>
+                        <p class="team-role">Technology Lead</p>
+                        <p class="team-bio">Software engineer and education technology specialist ensuring smooth event operations and digital experiences.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Prof. James Wilson</h3>
+                        <p class="team-role">Faculty Advisor</p>
+                        <p class="team-bio">Distinguished Professor of Mathematics and longtime advocate for youth STEM education and mathematical excellence.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Lisa Thompson</h3>
+                        <p class="team-role">Operations Manager</p>
+                        <p class="team-bio">Event management professional with expertise in large-scale educational events and student coordination.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Join the Inaugural PSE 2025?</h2>
+                    <p>Be part of history! Don't miss this opportunity to participate in our very first event, challenge yourself, learn from experts, and connect with fellow STEM enthusiasts.</p>
+                    <a href="registration.html" class="btn btn-primary">Register Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Princeton STEM Expo</h3>
+                    <p>Empowering the next generation of STEM leaders through mathematics and innovation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@princetonstemexpo.org</p>
+                    <p>Phone: (609) 555-0123</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Princeton STEM Expo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
