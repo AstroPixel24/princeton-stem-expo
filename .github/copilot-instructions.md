@@ -133,7 +133,7 @@ This is a static website project for the Princeton STEM Expo, a mathematics comp
 ## Placeholder Information
 
 Some content uses placeholder information:
-- Email addresses (@princetonstemexpo.org domain)
+- Email addresses (@princetonstem.org domain)
 - Phone numbers (555 prefix)
 - Dates (April 12, 2025)
 - Statistics and participant numbers

@@ -162,9 +162,8 @@ Extend JavaScript in `script.js` for additional interactive features.
 
 For questions about this website or the Princeton STEM Expo:
 
-- **Email**: info@princetonstemexpo.org
+- **Email**: admin@princetonstem.org
 - **Phone**: (609) 555-0123
-- **Website**: [Princeton STEM Expo](https://www.princetonstemexpo.org)
 
 ## License
 

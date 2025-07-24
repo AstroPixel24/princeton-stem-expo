@@ -48,7 +48,7 @@
         <section class="page-header">
             <div class="container">
                 <h1 class="page-title">Registration</h1>
-                <p class="page-subtitle">Join the inaugural PSE 2025 - Register as an individual student or organize a team</p>
+                <p class="page-subtitle">Join the inaugural PSE 2025 - Individual mathematics competition registration</p>
                 <div class="page-event-info">
                     <div class="page-event-details">
                         <div class="event-detail">
@@ -72,66 +72,39 @@
                         <h2 style="color: white; margin-bottom: 1rem;">Inaugural Event - Registration is Now Open!</h2>
                         <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Be part of history! Secure your spot for the first-ever PSE on September 27, 2025 at Princeton High School</p>
                         <div style="margin-top: 1.5rem;">
-                            <strong style="font-size: 1.2rem;">Early Bird Pricing Available Until March 1, 2025</strong>
+                            <strong style="font-size: 1.2rem;">Early Bird Pricing Available Until August 15, 2025</strong>
                         </div>
                     </div>
                 </div>
 
                 <!-- Registration Options -->
                 <div class="content-section">
-                    <h2>Choose Your Registration Type</h2>
+                    <h2>Individual Registration</h2>
+                    <div class="feature-card" style="text-align: center; background: linear-gradient(135deg, #f59e0b, #d97706); color: white; margin-bottom: 2rem;">
+                        <h3 style="color: white; margin-bottom: 1rem;">⚠️ Limited Spots Available</h3>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Registration is first-come, first-served. Secure your spot today!</p>
+                    </div>
+                    
                     <div class="features-grid">
                         <div class="feature-card">
                             <div class="feature-icon">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <h3>Individual Registration</h3>
-                            <p>Perfect for students who want to compete individually or be placed on a team with other individual registrants.</p>
+                            <h3>Individual Student Registration</h3>
+                            <p>Register as an individual student to compete in the Princeton STEM Expo mathematics competition.</p>
                             <ul style="text-align: left; margin: 1rem 0;">
-                                <li>Compete in all individual rounds</li>
-                                <li>Participate in team round with assigned teammates</li>
-                                <li>Access to all workshops and activities</li>
+                                <li>Participate in Sprint Round (30 problems)</li>
+                                <li>Participate in Target Round (8 problems)</li>
+                                <li>Compete in your grade division (Elementary or Middle School)</li>
                                 <li>Lunch and refreshments included</li>
+                                <li>Individual awards and recognition</li>
                             </ul>
                             <div class="pricing">
-                                <div style="font-size: 1.5rem; font-weight: 700; color: #2563eb;">$35</div>
-                                <div style="font-size: 0.9rem; color: #64748b;">Early Bird: $25</div>
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #2563eb;">$20</div>
+                                <div style="font-size: 0.9rem; color: #64748b;">Early Bird: $15 (until August 15)</div>
                             </div>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3>Team Registration</h3>
-                            <p>Register as a pre-formed team of 4 students from the same school or organization.</p>
-                            <ul style="text-align: left; margin: 1rem 0;">
-                                <li>Compete as a team in team rounds</li>
-                                <li>Individual competition for all team members</li>
-                                <li>Team photo and recognition</li>
-                                <li>Coach/teacher receives materials packet</li>
-                            </ul>
-                            <div class="pricing">
-                                <div style="font-size: 1.5rem; font-weight: 700; color: #2563eb;">$120</div>
-                                <div style="font-size: 0.9rem; color: #64748b;">Early Bird: $80 (4 students)</div>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-school"></i>
-                            </div>
-                            <h3>School Group</h3>
-                            <p>Register multiple students and teams from your school with discounted group pricing.</p>
-                            <ul style="text-align: left; margin: 1rem 0;">
-                                <li>5+ students from same school</li>
-                                <li>Dedicated check-in and coordination</li>
-                                <li>School recognition opportunities</li>
-                                <li>Complimentary teacher/coach registration</li>
-                            </ul>
-                            <div class="pricing">
-                                <div style="font-size: 1.5rem; font-weight: 700; color: #2563eb;">$25/student</div>
-                                <div style="font-size: 0.9rem; color: #64748b;">Early Bird: $20/student</div>
+                            <div style="margin-top: 1.5rem;">
+                                <a href="#registrationForm" class="btn btn-primary" style="display: inline-block; padding: 0.75rem 2rem; font-size: 1rem;">Register Now</a>
                             </div>
                         </div>
                     </div>
@@ -142,16 +115,6 @@
                     <h2>Registration Form</h2>
                     <div class="form-container">
                         <form id="registrationForm">
-                            <div class="form-group">
-                                <label for="registrationType">Registration Type *</label>
-                                <select id="registrationType" name="registrationType" required>
-                                    <option value="">Select registration type</option>
-                                    <option value="individual">Individual Registration</option>
-                                    <option value="team">Team Registration (4 students)</option>
-                                    <option value="school">School Group (5+ students)</option>
-                                </select>
-                            </div>
-
                             <!-- Student Information -->
                             <h3>Student Information</h3>
                             <div class="form-group">
@@ -216,26 +179,7 @@
                                 <input type="text" id="emergencyRelation" name="emergencyRelation" required>
                             </div>
 
-                            <!-- Team Information (conditionally shown) -->
-                            <div id="teamInfo" style="display: none;">
-                                <h3>Team Information</h3>
-                                <div class="form-group">
-                                    <label for="teamName">Team Name</label>
-                                    <input type="text" id="teamName" name="teamName">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="coachName">Coach/Teacher Name</label>
-                                    <input type="text" id="coachName" name="coachName">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="coachEmail">Coach/Teacher Email</label>
-                                    <input type="email" id="coachEmail" name="coachEmail">
-                                </div>
-                            </div>
-
-                            <!-- Dietary Restrictions & Medical Info -->
+                            <!-- Additional Information -->
                             <h3>Additional Information</h3>
                             <div class="form-group">
                                 <label for="dietary">Dietary Restrictions/Food Allergies</label>
@@ -247,48 +191,11 @@
                                 <textarea id="medical" name="medical" placeholder="Please describe any medical conditions, learning accommodations, or special needs"></textarea>
                             </div>
 
-                            <!-- T-shirt Size -->
-                            <div class="form-group">
-                                <label for="tshirtSize">T-shirt Size *</label>
-                                <select id="tshirtSize" name="tshirtSize" required>
-                                    <option value="">Select size</option>
-                                    <option value="YS">Youth Small</option>
-                                    <option value="YM">Youth Medium</option>
-                                    <option value="YL">Youth Large</option>
-                                    <option value="AS">Adult Small</option>
-                                    <option value="AM">Adult Medium</option>
-                                    <option value="AL">Adult Large</option>
-                                    <option value="AXL">Adult X-Large</option>
+                            <!-- Agreements & Permissions -->
                                 </select>
                             </div>
 
-                            <!-- Workshop Preferences -->
-                            <h3>Workshop Preferences</h3>
-                            <p>Select your preferred workshops for Session A and Session B. We'll do our best to accommodate preferences based on availability.</p>
-                            
-                            <div class="form-group">
-                                <label for="workshopA">Workshop Session A Preference</label>
-                                <select id="workshopA" name="workshopA">
-                                    <option value="">Select workshop</option>
-                                    <option value="robotics">Robotics & AI</option>
-                                    <option value="bioengineering">Bioengineering</option>
-                                    <option value="chemistry">Chemistry Lab</option>
-                                    <option value="space">Space Technology</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="workshopB">Workshop Session B Preference</label>
-                                <select id="workshopB" name="workshopB">
-                                    <option value="">Select workshop</option>
-                                    <option value="electronics">Electronics & Coding</option>
-                                    <option value="environmental">Environmental Science</option>
-                                    <option value="datascience">Data Science</option>
-                                    <option value="engineering">Engineering Design</option>
-                                </select>
-                            </div>
-
-                            <!-- Agreements -->
+                            <!-- Agreements & Permissions -->
                             <h3>Agreements & Permissions</h3>
                             <div class="form-group">
                                 <div class="checkbox-group">
@@ -373,12 +280,12 @@
                         <li>Completed liability waiver</li>
                     </ul>
 
-                    <h3>Team Formation Rules</h3>
+                    <h3>Competition Format</h3>
                     <ul>
-                        <li>Teams must consist of exactly 4 students</li>
-                        <li>Team members can be from different grades but must be from the same school</li>
-                        <li>Individual registrants will be placed on teams with other individual participants</li>
-                        <li>Teams compete in the same division as their highest grade member</li>
+                        <li>Individual competition only - no team rounds</li>
+                        <li>Students compete in their appropriate grade division</li>
+                        <li>Elementary Division: Grades 3-5</li>
+                        <li>Middle School Division: Grades 6-8</li>
                     </ul>
                 </div>
 
@@ -390,7 +297,12 @@
                     <ul>
                         <li><strong>Online Payment:</strong> Credit card or PayPal (preferred method)</li>
                         <li><strong>Check:</strong> Made payable to "Princeton STEM Expo"</li>
-                        <li><strong>School Purchase Order:</strong> Accepted for school group registrations</li>
+                    </ul>
+
+                    <h3>Pricing</h3>
+                    <ul>
+                        <li><strong>Early Bird (until August 15, 2025):</strong> $15 per student</li>
+                        <li><strong>Regular Registration:</strong> $20 per student</li>
                     </ul>
 
                     <h3>Refund Policy</h3>
@@ -402,7 +314,7 @@
                     </ul>
 
                     <h3>Financial Assistance</h3>
-                    <p>Limited scholarships are available for students with demonstrated financial need. Contact us at <a href="mailto:scholarships@princetonstemexpo.org">scholarships@princetonstemexpo.org</a> for more information.</p>
+                    <p>Limited scholarships are available for students with demonstrated financial need. Contact us at <a href="mailto:admin@princetonstem.org">admin@princetonstem.org</a> for more information.</p>
                 </div>
 
                 <!-- Contact Information -->
@@ -412,9 +324,8 @@
                     
                     <div class="feature-card" style="background: #f8fafc;">
                         <h3>Registration Support</h3>
-                        <p><strong>Email:</strong> <a href="mailto:registration@princetonstemexpo.org">registration@princetonstemexpo.org</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:admin@princetonstem.org">admin@princetonstem.org</a></p>
                         <p><strong>Phone:</strong> (609) 555-0123</p>
-                        <p><strong>Office Hours:</strong> Monday-Friday, 9:00 AM - 5:00 PM EST</p>
                         <p>We typically respond to emails within 24 hours during business days.</p>
                     </div>
                 </div>
@@ -440,7 +351,7 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>Email: info@princetonstemexpo.org</p>
+                    <p>Email: admin@princetonstem.org</p>
                     <p>Phone: (609) 555-0123</p>
                 </div>
                 <div class="footer-section">

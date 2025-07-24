@@ -1146,3 +1146,255 @@ body {
         padding: 1.5rem;
     }
 }
+
+/* About Carousel Styles */
+.about-carousel-container {
+    margin: 3rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carousel-slides {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-slide {
+    display: none;
+    padding: 3rem 2rem;
+    text-align: center;
+    min-height: 350px;
+    transition: all 0.3s ease;
+}
+
+.carousel-slide.active {
+    display: block;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.slide-icon {
+    font-size: 3rem;
+    color: #2563eb;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slide-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.slide-content p {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.slide-bullets {
+    list-style: none;
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.slide-bullets li {
+    position: relative;
+    padding: 0.5rem 0 0.5rem 2rem;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.slide-bullets li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.carousel-btn i {
+    color: #2563eb;
+    font-size: 1.2rem;
+}
+
+.prev-btn {
+    left: -25px;
+}
+
+.next-btn {
+    right: -25px;
+}
+
+/* Carousel Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #2563eb;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background: #475569;
+    transform: scale(1.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .about-carousel-container {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .carousel-slide {
+        padding: 2rem 1.5rem;
+        min-height: 300px;
+    }
+
+    .slide-icon {
+        font-size: 2.5rem;
+    }
+
+    .slide-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .slide-content p {
+        font-size: 1rem;
+    }
+
+    .slide-bullets li {
+        font-size: 0.9rem;
+        padding: 0.4rem 0 0.4rem 1.8rem;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-btn i {
+        font-size: 1rem;
+    }
+
+    .prev-btn {
+        left: -20px;
+    }
+
+    .next-btn {
+        right: -20px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Touch-friendly mobile adjustments */
+@media (max-width: 480px) {
+    .carousel-controls {
+        display: none; /* Hide arrow buttons on very small screens */
+    }
+
+    .carousel-dots {
+        margin-top: 1.5rem;
+        gap: 0.75rem;
+    }
+
+    .dot {
+        width: 14px;
+        height: 14px;
+    }
+
+    .about-carousel-container {
+        padding: 1rem;
+    }
+
+    .carousel-slide {
+        padding: 1.5rem 1rem;
+        min-height: 280px;
+    }
+}
