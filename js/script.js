@@ -317,6 +317,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Contact Form Logic
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
+    contactForm.action = "https://formsubmit.co/princetonstemexpo@gmail.com";
+    contactForm.method = "POST";
 
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -338,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isValid) {
                 // Show success message
                 showNotification('Message sent successfully! We will respond within 1-2 business days.', 'success');
-                
+                contactForm.submit();
                 // Reset form
                 this.reset();
             } else {
