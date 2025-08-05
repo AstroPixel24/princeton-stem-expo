@@ -303,15 +303,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isValid) {
                 // Show success message
                 e.preventDefault();
-    		    const data = new FormData(form);
+    		    const data = new FormData(this);
     		    const action = e.target.action;
     		    fetch(action, {
       			    method: "POST",
       			    body: data,
     		    })
                 .then(() => {
-      			        showNotification('Registration form submitted successfully! You will receive payment instructions via email.', 'success');
-			            // Reset form
+      			showNotification('Registration form submitted successfully! You will receive payment instructions via email.', 'success');
+			// Reset form
                         this.reset();
                         teamInfo.style.display = 'none';
     		    })
