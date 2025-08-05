@@ -302,19 +302,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (isValid) {
                 // Show success message
-                e.preventDefault();
-    		    const data = new FormData(this);
-    		    const action = e.target.action;
-    		    fetch(action, {
-      			    method: "POST",
-      			    body: data,
-    		    })
+    		const data = new FormData(registrationForm);
+    		const action = e.target.action;
+    		fetch("https://script.google.com/macros/s/AKfycbyW4RoGyn6Ccgd0jRBfKvWUflkxqKSoeH95tJfc0OqOmfQZm369UE4Wsn-gYzCF5sp4/exec", {
+      		    method: "POST",
+      		    body: data,
+		})
                 .then(() => {
       			showNotification('Registration form submitted successfully! You will receive payment instructions via email.', 'success');
 			// Reset form
                         this.reset();
-                        teamInfo.style.display = 'none';
-    		    })
+                       	//teamInfo.style.display = 'none';
+    		})
             } else {
                 showNotification('Please fill in all required fields.', 'error');
             }
