@@ -302,11 +302,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (isValid) {
                 // Show success message
-                showNotification('Registration form submitted successfully! You will receive payment instructions via email.', 'success');
-                
-                // Reset form
-                this.reset();
-                teamInfo.style.display = 'none';
+                e.preventDefault();
+    		    const data = new FormData(form);
+    		    const action = e.target.action;
+    		    fetch(action, {
+      			    method: "POST",
+      			    body: data,
+    		    })
+                .then(() => {
+      			        showNotification('Registration form submitted successfully! You will receive payment instructions via email.', 'success');
+			            // Reset form
+                        this.reset();
+                        teamInfo.style.display = 'none';
+    		    })
             } else {
                 showNotification('Please fill in all required fields.', 'error');
             }
