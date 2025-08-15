@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsors - Princeton STEM Expo (PSE)</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>PSE</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="workshops.html" class="nav-link">Workshops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule.html" class="nav-link">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="registration.html" class="nav-link">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="resources.html" class="nav-link">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sponsors.html" class="nav-link active">Sponsors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Sponsors</h1>
+                <p class="page-subtitle">Meet the Sponsors that make WWPSE possible!</p>
+            </div>
+        </section>
+        <section class="page-content">
+            <div class="container">
+                <style>
+                    .sponsors-grid {
+                        display: flex;
+                        gap: 2rem;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        margin-top: 2rem;
+                    }
+                    .sponsor-box {
+                        width: 320px;
+                        min-height: 420px;
+                        background: #f1f5f9;
+                        border-radius: 18px;
+                        box-shadow: 0 2px 12px rgba(37,99,235,0.07);
+                        border: 2px solid #e0e7ff;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: flex-start;
+                        transition: background 0.3s, color 0.3s;
+                        cursor: pointer;
+                        padding: 2rem 1.5rem 2rem 1.5rem;
+                        position: relative;
+                    }
+                    .sponsor-box:hover {
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    }
+                    .sponsor-box img {
+                        display: block;
+                        margin: 0 auto 1.5rem auto;
+                        max-width: 250px;
+                        max-height: 250px;
+                        object-fit: contain;
+                    }
+                    .sponsor-box .sponsor-desc {
+                        color: #2563eb;
+                        font-size: 0.85rem;
+                        text-align: center;
+                        margin-top: 1.5rem;
+                        margin-bottom: 0;
+                        line-height: 1.5;
+                        font-weight: 400;
+                        transition: color 0.3s;
+                    }
+                    .sponsor-box:hover .sponsor-desc {
+                        color: #fff;
+                    }
+                </style>
+                <div class="sponsors-grid">
+                    <div class="sponsor-box" id="aops-sponsor-box">
+                        <img src="aopsprincetonlog.png" alt="AoPS Princeton Logo">
+                        <div class="sponsor-desc">
+                            AoPS  is an enrichment program for grades 1–12, offering classes in math, english, and more for students. Students develop their creativity, critical thinking, and complex problem solving skills with outstanding peers and mentors.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Princeton STEM Expo</h3>
+                    <p>Empowering the next generation of STEM leaders through mathematics and innovation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="sponsors.html">Sponsors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: princetonstemexpo@gmail.com</p>
+                    <p>Phone: (609) 555-0123</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Princeton STEM Expo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sponsorBox = document.getElementById('aops-sponsor-box');
+            if (sponsorBox) {
+                sponsorBox.addEventListener('click', function() {
+                    if (confirm('You are about to leave this site and visit AoPS. Would you like to continue?')) {
+                        window.open('https://aopsacademy.org/campus/princeton', '_blank');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
