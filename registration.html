@@ -120,7 +120,9 @@
                 <!-- Registration Form -->
                 <div class="content-section">
                     <h2>Registration Form</h2>
+                    
                     <div class="form-container">
+                        <!-- UPDATED FORM: Now properly submits to Google Apps Script -->
                         <form id="registrationForm" method = "POST" action="https://script.google.com/macros/s/AKfycbyW4RoGyn6Ccgd0jRBfKvWUflkxqKSoeH95tJfc0OqOmfQZm369UE4Wsn-gYzCF5sp4/exec">
                             <!-- Student Information -->
                             <h3>Student Information</h3>
@@ -199,41 +201,51 @@
                             </div>
 
                             <!-- Agreements & Permissions -->
-                                </select>
-                            </div>
-
-                            <!-- Agreements & Permissions -->
                             <h3>Agreements & Permissions</h3>
                             <div class="form-group">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="liability" name="liability" required>
+                                    <input type="checkbox" id="liability" name="Liability Waiver" required>
                                     <label for="liability">I agree to the liability waiver and understand that participation is at my own risk. *</label>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="photography" name="photography">
+                                    <input type="checkbox" id="photography" name="Photography Permission">
                                     <label for="photography">I give permission for photographs taken during the event to be used for promotional purposes.</label>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="communication" name="communication">
+                                    <input type="checkbox" id="communication" name="Communication Permission">
                                     <label for="communication">I would like to receive updates about future PSE events and STEM opportunities.</label>
                                 </div>
                             </div>
 
                             <!-- Submit Button -->
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Complete Registration</button>
+                                <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Complete Registration</button>
                             </div>
 
                             <p style="font-size: 0.9rem; color: #64748b; text-align: center; margin-top: 1rem;">
                                 Please wait a few seconds for the submission to go through. After submitting this form, you will receive payment instructions via email within 1-2 business days. Registration is not complete until payment is received.
                             </p>
                         </form>
+                        
+                        <!-- Success message -->
+                        <div id="successMessage" style="display: none; text-align: center; margin-top: 2rem; padding: 1.5rem; background: #f0fdf4; border: 2px solid #22c55e; border-radius: 8px;">
+                            <p style="color: #166534; font-size: 1.1rem; margin: 0;">
+                                ✅ Thank you for registering! A confirmation email has been sent.
+                            </p>
+                        </div>
+
+                        <!-- Error message -->
+                        <div id="errorMessage" style="display: none; text-align: center; margin-top: 2rem; padding: 1.5rem; background: #fef2f2; border: 2px solid #ef4444; border-radius: 8px;">
+                            <p style="color: #991b1b; font-size: 1.1rem; margin: 0;">
+                                ❌ There was an error submitting your registration. Please try again.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -359,17 +371,6 @@
                     <h4>Contact</h4>
                     <p>Email: princetonstemexpo@gmail.com</p>
                 </div>
-                <!--
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div
-                -->
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Princeton STEM Expo. All rights reserved.</p>
@@ -378,5 +379,124 @@
     </footer>
 
     <script src="js/script.js"></script>
+    
+    <script>
+        // UPDATED SCRIPT: Properly submits to Google Apps Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registrationForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Your Google Apps Script URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbz8mw81tCVrtG60JooQL7dVE81Sc6kHCox25Jk7TSgk2yeZR_TBeRMvR-Dy2rcxhSSz/exec';
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                console.log('=== FORM SUBMISSION STARTED ===');
+                
+                // Validate required fields
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#ef4444';
+                        field.style.boxShadow = '0 0 0 1px #ef4444';
+                    } else {
+                        field.style.borderColor = '#e2e8f0';
+                        field.style.boxShadow = 'none';
+                    }
+                });
+
+                if (!isValid) {
+                    alert('Please fill in all required fields marked with *');
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.7';
+                
+                // Hide previous messages
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                // Prepare form data
+                const formData = new FormData(form);
+                
+                // Handle checkboxes properly
+                formData.set('Liability Waiver', document.getElementById('liability').checked ? 'Yes' : 'No');
+                formData.set('Photography Permission', document.getElementById('photography').checked ? 'Yes' : 'No');
+                formData.set('Communication Permission', document.getElementById('communication').checked ? 'Yes' : 'No');
+                
+                // Debug: Log form data
+                console.log('Form data being sent:');
+                for (let [key, value] of formData.entries()) {
+                    console.log(key + ': ' + value);
+                }
+
+                // Submit to Google Apps Script
+                fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    return response.text();
+                })
+                .then(result => {
+                    console.log('Response from server:', result);
+                    
+                    try {
+                        const jsonResult = JSON.parse(result);
+                        if (jsonResult.result === 'success') {
+                            // Success!
+                            console.log('✅ Registration successful!');
+                            form.reset();
+                            successMessage.style.display = 'block';
+                            successMessage.scrollIntoView({ behavior: 'smooth' });
+                            
+                            // Hide success message after 10 seconds
+                            setTimeout(() => {
+                                successMessage.style.display = 'none';
+                            }, 10000);
+                        } else {
+                            throw new Error(jsonResult.error || 'Unknown error');
+                        }
+                    } catch (parseError) {
+                        // If response isn't JSON, check if it contains success indicators
+                        if (result.toLowerCase().includes('success')) {
+                            console.log('✅ Registration successful (non-JSON response)');
+                            form.reset();
+                            successMessage.style.display = 'block';
+                            successMessage.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            throw new Error('Server response: ' + result);
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('❌ Submission error:', error);
+                    errorMessage.style.display = 'block';
+                    errorMessage.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Hide error message after 10 seconds
+                    setTimeout(() => {
+                        errorMessage.style.display = 'none';
+                    }, 10000);
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitBtn.textContent = 'Complete Registration';
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
