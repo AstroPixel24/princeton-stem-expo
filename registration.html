@@ -230,121 +230,70 @@
                                 </div>
                             </div>
 
+                            <!-- Payment Section -->
+                            <h3>Payment Information</h3>
+                            <div class="form-group">
+                                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 1rem;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                        <span style="font-weight: 600; color: #1f2937;">Registration Fee:</span>
+                                        <span style="font-size: 1.2rem; font-weight: 700; color: #2563eb;">$25.00</span>
+                                    </div>
+                                    <p style="color: #64748b; font-size: 0.9rem; margin: 0;">
+                                        Secure payment processing by Stripe. All major credit cards accepted.
+                                    </p>
+                                </div>
+                                
+                                <!-- Stripe Payment Element Container -->
+                                <div id="payment-element" style="margin-bottom: 1rem;">
+                                    <!-- Stripe Payment Element will be mounted here -->
+                                </div>
+                                
+                                <!-- Payment Error Display -->
+                                <div id="payment-errors" role="alert" style="display: none; color: #dc2626; font-size: 0.9rem; margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px;"></div>
+                            </div>
+
+                            <!-- Hidden field for amount -->
+                            <input type="hidden" name="AmountCents" value="2500">
+                            
+                            <!-- Hidden field for PaymentIntent ID (added after successful payment) -->
+                            <input type="hidden" id="paymentIntentId" name="PaymentIntentId" value="">
+
                             <!-- Submit Button -->
                             <div class="form-group">
-                                <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Complete Registration</button>
+                                <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;" disabled>
+                                    <span id="submit-text">Processing Payment Setup...</span>
+                                    <span id="submit-spinner" style="display: none;">
+                                        <i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i>
+                                        Processing...
+                                    </span>
+                                </button>
                             </div>
 
                             <p style="font-size: 0.9rem; color: #64748b; text-align: center; margin-top: 1rem;">
-                                Please wait a few seconds for the submission to go through. After submitting this form, you will receive payment instructions via email within 1-2 business days. Registration is not complete until payment is received.
+                                Your payment will be processed securely by Stripe. Registration will be completed only after successful payment.
                             </p>
                         </form>
                         
                         <!-- Success message -->
                         <div id="successMessage" style="display: none; text-align: center; margin-top: 2rem; padding: 1.5rem; background: #f0fdf4; border: 2px solid #22c55e; border-radius: 8px;">
                             <p style="color: #166534; font-size: 1.1rem; margin: 0;">
-                                ✅ Thank you for registering! A confirmation email has been sent.
+                                ✅ Payment successful! Your registration has been completed and a confirmation email has been sent.
                             </p>
                         </div>
 
                         <!-- Error message -->
                         <div id="errorMessage" style="display: none; text-align: center; margin-top: 2rem; padding: 1.5rem; background: #fef2f2; border: 2px solid #ef4444; border-radius: 8px;">
                             <p style="color: #991b1b; font-size: 1.1rem; margin: 0;">
-                                ❌ There was an error submitting your registration. Please try again.
+                                ❌ <span id="error-text">There was an error processing your registration. Please try again.</span>
                             </p>
                         </div>
 
-                        <!-- Payment Section - Shows after successful registration -->
-                        <div id="paymentSection" style="display: none; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 12px; border: 2px solid #10b981;">
-                            <div style="text-align: center; margin-bottom: 2rem;">
-                                <h3 style="color: #10b981; margin-bottom: 1rem;">
-                                    <i class="fas fa-credit-card" style="margin-right: 0.5rem;"></i>
-                                    Complete Your Payment
-                                </h3>
-                                <p style="color: #475569; font-size: 1.1rem;">
-                                    Your registration is almost complete! Please proceed with payment to secure your spot.
-                                </p>
-                                <div style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
-                                    <p style="color: #856404; margin: 0; font-weight: 500;">
-                                        <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
-                                        Registration Fee: <strong>$25.00</strong>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Stripe Payment Options -->
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-                                <!-- Option 1: Stripe Checkout -->
-                                <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 2px solid #e2e8f0; text-align: center;">
-                                    <h4 style="color: #2563eb; margin-bottom: 1rem;">
-                                        <i class="fas fa-shield-alt" style="margin-right: 0.5rem;"></i>
-                                        Secure Checkout
-                                    </h4>
-                                    <p style="color: #64748b; margin-bottom: 1.5rem; font-size: 0.9rem;">
-                                        Pay securely with credit card, debit card, or digital wallet
-                                    </p>
-                                    <button id="stripeCheckoutBtn" style="background: #635bff; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; cursor: pointer; width: 100%; transition: background-color 0.2s;">
-                                        Pay with Stripe
-                                    </button>
-                                </div>
-
-                                <!-- Option 2: Stripe Buy Button -->
-                                <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 2px solid #e2e8f0; text-align: center;">
-                                    <h4 style="color: #2563eb; margin-bottom: 1rem;">
-                                        <i class="fas fa-bolt" style="margin-right: 0.5rem;"></i>
-                                        Quick Pay
-                                    </h4>
-                                    <p style="color: #64748b; margin-bottom: 1.5rem; font-size: 0.9rem;">
-                                        One-click payment with Stripe's buy button
-                                    </p>
-                                    <div id="stripeBuyButton">
-                                        <stripe-buy-button
-                                            buy-button-id="buy_btn_1S7FZ9L3WcAlke0tfywCniP2"
-                                            publishable-key="pk_live_51RwmdKL3WcAlke0tvM5VmKJY6kgYxWQ0J0soqrWxy7JaEy98rZjzXrqHa14grLLgYMjwyOr9wUudCmUTvadOAZKv00tWp1mM55">
-                                        </stripe-buy-button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Payment Features -->
-                            <div style="background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                                <h4 style="color: #1f2937; margin-bottom: 1rem; text-align: center;">
-                                    <i class="fas fa-check-circle" style="color: #10b981; margin-right: 0.5rem;"></i>
-                                    Secure Payment Features
-                                </h4>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
-                                    <div>
-                                        <i class="fas fa-lock" style="color: #10b981; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-                                        <p style="font-size: 0.9rem; color: #64748b; margin: 0;">SSL Encrypted</p>
-                                    </div>
-                                    <div>
-                                        <i class="fas fa-credit-card" style="color: #10b981; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-                                        <p style="font-size: 0.9rem; color: #64748b; margin: 0;">All Major Cards</p>
-                                    </div>
-                                    <div>
-                                        <i class="fas fa-mobile-alt" style="color: #10b981; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-                                        <p style="font-size: 0.9rem; color: #64748b; margin: 0;">Apple/Google Pay</p>
-                                    </div>
-                                    <div>
-                                        <i class="fas fa-undo" style="color: #10b981; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-                                        <p style="font-size: 0.9rem; color: #64748b; margin: 0;">Refund Policy</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Payment Instructions -->
-                            <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
-                                <h5 style="color: #1e40af; margin-bottom: 1rem;">
-                                    <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
-                                    Payment Instructions
-                                </h5>
-                                <ul style="color: #475569; margin: 0; padding-left: 1.5rem;">
-                                    <li>Choose either payment option above</li>
-                                    <li>You'll receive a payment confirmation email immediately</li>
-                                    <li>Your registration will be confirmed once payment is processed</li>
-                                    <li>Contact us at <a href="mailto:princetonstemexpo@gmail.com" style="color: #2563eb;">princetonstemexpo@gmail.com</a> if you have any payment issues</li>
-                                </ul>
-                            </div>
+                        <!-- Loading message -->
+                        <div id="loadingMessage" style="display: block; text-align: center; margin-top: 2rem; padding: 1.5rem; background: #f0f9ff; border: 2px solid #3b82f6; border-radius: 8px;">
+                            <p style="color: #1e40af; font-size: 1.1rem; margin: 0;">
+                                <i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i>
+                                Setting up secure payment system...
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -482,94 +431,115 @@
     
     <!-- Stripe JavaScript -->
     <script src="https://js.stripe.com/v3/"></script>
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     
     <script>
-        // UPDATED SCRIPT: Properly submits to Google Apps Script and shows payment section
+        // Embedded Stripe Payment Element Implementation
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('registrationForm');
             const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submit-text');
+            const submitSpinner = document.getElementById('submit-spinner');
             const successMessage = document.getElementById('successMessage');
             const errorMessage = document.getElementById('errorMessage');
-            const paymentSection = document.getElementById('paymentSection');
+            const errorText = document.getElementById('error-text');
+            const loadingMessage = document.getElementById('loadingMessage');
+            const paymentErrors = document.getElementById('payment-errors');
             
             // Initialize Stripe
             const stripe = Stripe('pk_live_51RwmdKL3WcAlke0tvM5VmKJY6kgYxWQ0J0soqrWxy7JaEy98rZjzXrqHa14grLLgYMjwyOr9wUudCmUTvadOAZKv00tWp1mM55');
             
-            // Your Google Apps Script URL
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbz8mw81tCVrtG60JooQL7dVE81Sc6kHCox25Jk7TSgk2yeZR_TBeRMvR-Dy2rcxhSSz/exec';
+            // Your Google Apps Script URL - replace with your actual URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyW4RoGyn6Ccgd0jRBfKvWUflkxqKSoeH95tJfc0OqOmfQZm369UE4Wsn-gYzCF5sp4/exec';
+            
+            let elements;
+            let paymentElement;
+            let clientSecret;
+            let paymentIntentId;
 
-            // Stripe Checkout Button Handler
-            const stripeCheckoutBtn = document.getElementById('stripeCheckoutBtn');
-            if (stripeCheckoutBtn) {
-                stripeCheckoutBtn.addEventListener('click', async function() {
-                    try {
-                        // Create checkout session
-                        const { error } = await stripe.redirectToCheckout({
-                            lineItems: [{
-                                price: 'price_1S7FZ9L3WcAlke0tfywCniP2', // Replace with your actual price ID
-                                quantity: 1,
-                            }],
-                            mode: 'payment',
-                            successUrl: window.location.origin + window.location.pathname + '?payment=success',
-                            cancelUrl: window.location.origin + window.location.pathname + '?payment=cancelled',
-                        });
+            // Initialize payment system
+            async function initializePayment() {
+                try {
+                    console.log('🔄 Initializing payment system...');
+                    
+                    // Get amount from hidden field or use default
+                    const amountInput = document.querySelector('input[name="AmountCents"]');
+                    const amount = amountInput ? amountInput.value : '2500'; // $25.00
 
-                        if (error) {
-                            console.error('Stripe error:', error);
-                            alert('Payment failed. Please try again or contact support.');
-                        }
-                    } catch (error) {
-                        console.error('Payment error:', error);
-                        alert('Payment failed. Please try again or contact support.');
+                    // Create PaymentIntent via Google Apps Script
+                    const response = await fetch(scriptURL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams({
+                            action: 'createPaymentIntent',
+                            amount: amount,
+                            currency: 'usd'
+                        })
+                    });
+
+                    const result = await response.json();
+                    
+                    if (result.error) {
+                        throw new Error(result.error);
                     }
-                });
+
+                    clientSecret = result.clientSecret;
+                    paymentIntentId = result.paymentIntentId;
+                    
+                    console.log('✅ PaymentIntent created:', paymentIntentId);
+
+                    // Create Stripe Elements
+                    const appearance = {
+                        theme: 'stripe',
+                        variables: {
+                            colorPrimary: '#2563eb',
+                            colorBackground: '#ffffff',
+                            colorText: '#1f2937',
+                            colorDanger: '#dc2626',
+                            fontFamily: 'Inter, system-ui, sans-serif',
+                            spacingUnit: '4px',
+                            borderRadius: '6px'
+                        }
+                    };
+
+                    elements = stripe.elements({ appearance, clientSecret });
+                    
+                    // Create Payment Element
+                    paymentElement = elements.create('payment');
+                    paymentElement.mount('#payment-element');
+
+                    // Handle payment element changes
+                    paymentElement.on('change', (event) => {
+                        if (event.error) {
+                            showPaymentError(event.error.message);
+                        } else {
+                            hidePaymentError();
+                        }
+                        
+                        // Enable submit button if ready
+                        if (event.complete) {
+                            submitBtn.disabled = false;
+                            submitText.textContent = 'Complete Registration & Payment';
+                        }
+                    });
+
+                    // Hide loading, enable form
+                    loadingMessage.style.display = 'none';
+                    submitBtn.disabled = false;
+                    submitText.textContent = 'Complete Registration & Payment';
+                    
+                    console.log('✅ Payment Element mounted successfully');
+                    
+                } catch (error) {
+                    console.error('❌ Payment initialization error:', error);
+                    loadingMessage.style.display = 'none';
+                    showError('Failed to initialize payment system: ' + error.message);
+                }
             }
 
-            // Check for payment success/cancel in URL
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('payment') === 'success') {
-                // Show payment success message
-                const paymentSuccessMsg = document.createElement('div');
-                paymentSuccessMsg.innerHTML = `
-                    <div style="text-align: center; margin: 2rem 0; padding: 2rem; background: #f0fdf4; border: 2px solid #22c55e; border-radius: 12px;">
-                        <h2 style="color: #166534; margin-bottom: 1rem;">
-                            <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
-                            Payment Successful!
-                        </h2>
-                        <p style="color: #166534; font-size: 1.1rem; margin-bottom: 1rem;">
-                            Thank you! Your registration and payment have been completed successfully.
-                        </p>
-                        <p style="color: #166534; font-size: 1rem;">
-                            You will receive a confirmation email shortly with your registration details and receipt.
-                        </p>
-                    </div>
-                `;
-                document.querySelector('.container').insertBefore(paymentSuccessMsg, document.querySelector('.content-section'));
-                
-                // Clean up URL
-                window.history.replaceState({}, document.title, window.location.pathname);
-            } else if (urlParams.get('payment') === 'cancelled') {
-                // Show payment cancelled message
-                const paymentCancelMsg = document.createElement('div');
-                paymentCancelMsg.innerHTML = `
-                    <div style="text-align: center; margin: 2rem 0; padding: 2rem; background: #fef3c7; border: 2px solid #f59e0b; border-radius: 12px;">
-                        <h2 style="color: #92400e; margin-bottom: 1rem;">
-                            <i class="fas fa-exclamation-triangle" style="margin-right: 0.5rem;"></i>
-                            Payment Cancelled
-                        </h2>
-                        <p style="color: #92400e; font-size: 1.1rem;">
-                            Your payment was cancelled. Please complete the registration form again if you'd like to register.
-                        </p>
-                    </div>
-                `;
-                document.querySelector('.container').insertBefore(paymentCancelMsg, document.querySelector('.content-section'));
-                
-                // Clean up URL
-                window.history.replaceState({}, document.title, window.location.pathname);
-            }
-
-            form.addEventListener('submit', function(e) {
+            // Form submission handler
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
                 console.log('=== FORM SUBMISSION STARTED ===');
@@ -590,98 +560,147 @@
                 });
 
                 if (!isValid) {
-                    alert('Please fill in all required fields marked with *');
+                    showError('Please fill in all required fields marked with *');
                     return;
                 }
 
                 // Show loading state
-                submitBtn.textContent = 'Submitting...';
-                submitBtn.disabled = true;
-                submitBtn.style.opacity = '0.7';
-                
-                // Hide previous messages
-                successMessage.style.display = 'none';
-                errorMessage.style.display = 'none';
-                paymentSection.style.display = 'none';
+                setSubmitLoading(true);
+                hideMessages();
 
-                // Prepare form data
-                const formData = new FormData(form);
-                
-                // Handle checkboxes properly
-                formData.set('Liability Waiver', document.getElementById('liability').checked ? 'Yes' : 'No');
-                formData.set('Photography Permission', document.getElementById('photography').checked ? 'Yes' : 'No');
-                formData.set('Communication Permission', document.getElementById('communication').checked ? 'Yes' : 'No');
-                
-                // Debug: Log form data
-                console.log('Form data being sent:');
-                for (let [key, value] of formData.entries()) {
-                    console.log(key + ': ' + value);
+                try {
+                    console.log('🔄 Confirming payment...');
+                    
+                    // Confirm payment with Stripe
+                    const { error, paymentIntent } = await stripe.confirmPayment({
+                        elements,
+                        redirect: 'if_required'
+                    });
+
+                    if (error) {
+                        console.error('❌ Payment confirmation error:', error);
+                        if (error.type === 'card_error' || error.type === 'validation_error') {
+                            showPaymentError(error.message);
+                        } else {
+                            showError('Payment failed: ' + error.message);
+                        }
+                        return;
+                    }
+
+                    if (paymentIntent.status === 'succeeded') {
+                        console.log('✅ Payment successful!', paymentIntent.id);
+                        
+                        // Add PaymentIntent ID to form
+                        document.getElementById('paymentIntentId').value = paymentIntent.id;
+                        
+                        // Submit form to Google Sheets
+                        await submitFormToSheets();
+                        
+                    } else {
+                        console.log('⚠️ Payment requires additional action');
+                        showError('Payment requires additional verification. Please try again.');
+                    }
+                    
+                } catch (error) {
+                    console.error('❌ Submission error:', error);
+                    showError('An unexpected error occurred. Please try again.');
+                } finally {
+                    setSubmitLoading(false);
                 }
+            });
 
-                // Submit to Google Apps Script
-                fetch(scriptURL, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    console.log('Response status:', response.status);
-                    return response.text();
-                })
-                .then(result => {
-                    console.log('Response from server:', result);
+            // Submit form data to Google Sheets
+            async function submitFormToSheets() {
+                try {
+                    console.log('🔄 Submitting to Google Sheets...');
+                    
+                    const formData = new FormData(form);
+                    
+                    // Handle checkboxes properly
+                    formData.set('Liability Waiver', document.getElementById('liability').checked ? 'Yes' : 'No');
+                    formData.set('Photography Permission', document.getElementById('photography').checked ? 'Yes' : 'No');
+                    formData.set('Communication Permission', document.getElementById('communication').checked ? 'Yes' : 'No');
+                    
+                    // Debug: Log form data
+                    console.log('Form data being sent:');
+                    for (let [key, value] of formData.entries()) {
+                        console.log(key + ': ' + value);
+                    }
+
+                    const response = await fetch(scriptURL, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const result = await response.text();
+                    console.log('Google Sheets response:', result);
                     
                     try {
                         const jsonResult = JSON.parse(result);
-                        if (jsonResult.result === 'success') {
-                            // Success!
-                            console.log('✅ Registration successful!');
+                        if (jsonResult.ok || jsonResult.result === 'success') {
+                            console.log('✅ Successfully saved to Google Sheets!');
+                            showSuccess();
                             form.reset();
-                            successMessage.style.display = 'block';
-                            paymentSection.style.display = 'block'; // Show payment section
-                            successMessage.scrollIntoView({ behavior: 'smooth' });
-                            
-                            // Scroll to payment section after a short delay
-                            setTimeout(() => {
-                                paymentSection.scrollIntoView({ behavior: 'smooth' });
-                            }, 2000);
                         } else {
-                            throw new Error(jsonResult.error || 'Unknown error');
+                            throw new Error(jsonResult.error || 'Unknown error from Google Sheets');
                         }
                     } catch (parseError) {
                         // If response isn't JSON, check if it contains success indicators
-                        if (result.toLowerCase().includes('success')) {
-                            console.log('✅ Registration successful (non-JSON response)');
+                        if (result.toLowerCase().includes('success') || result.toLowerCase().includes('ok')) {
+                            console.log('✅ Successfully saved to Google Sheets (non-JSON response)');
+                            showSuccess();
                             form.reset();
-                            successMessage.style.display = 'block';
-                            paymentSection.style.display = 'block'; // Show payment section
-                            successMessage.scrollIntoView({ behavior: 'smooth' });
-                            
-                            // Scroll to payment section after a short delay
-                            setTimeout(() => {
-                                paymentSection.scrollIntoView({ behavior: 'smooth' });
-                            }, 2000);
                         } else {
-                            throw new Error('Server response: ' + result);
+                            throw new Error('Unexpected response from Google Sheets: ' + result);
                         }
                     }
-                })
-                .catch(error => {
-                    console.error('❌ Submission error:', error);
-                    errorMessage.style.display = 'block';
-                    errorMessage.scrollIntoView({ behavior: 'smooth' });
                     
-                    // Hide error message after 10 seconds
-                    setTimeout(() => {
-                        errorMessage.style.display = 'none';
-                    }, 10000);
-                })
-                .finally(() => {
-                    // Reset button state
-                    submitBtn.textContent = 'Complete Registration';
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '1';
-                });
-            });
+                } catch (error) {
+                    console.error('❌ Google Sheets submission error:', error);
+                    showError('Registration was processed but there was an error saving your information. Please contact support with your payment confirmation.');
+                }
+            }
+
+            // Utility functions
+            function setSubmitLoading(loading) {
+                submitBtn.disabled = loading;
+                if (loading) {
+                    submitText.style.display = 'none';
+                    submitSpinner.style.display = 'inline';
+                } else {
+                    submitText.style.display = 'inline';
+                    submitSpinner.style.display = 'none';
+                }
+            }
+
+            function showPaymentError(message) {
+                paymentErrors.textContent = message;
+                paymentErrors.style.display = 'block';
+            }
+
+            function hidePaymentError() {
+                paymentErrors.style.display = 'none';
+            }
+
+            function showError(message) {
+                errorText.textContent = message;
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            function showSuccess() {
+                successMessage.style.display = 'block';
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            function hideMessages() {
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                hidePaymentError();
+            }
+
+            // Initialize payment system when page loads
+            initializePayment();
         });
     </script>
 </body>
