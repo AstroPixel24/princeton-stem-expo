@@ -448,7 +448,8 @@
             // Initialize Stripe
             const stripe = Stripe('pk_live_51RwmdKL3WcAlke0tvM5VmKJY6kgYxWQ0J0soqrWxy7JaEy98rZjzXrqHa14grLLgYMjwyOr9wUudCmUTvadOAZKv00tWp1mM55');
             
-            // Your Google Apps Script URL - replace with your actual URL
+            // Your Google Apps Script URL - IMPORTANT: Replace with your actual deployment URL
+            // To get this URL: Deploy your Google Apps Script as a web app and copy the URL
             const scriptURL = 'https://script.google.com/macros/s/AKfycbyW4RoGyn6Ccgd0jRBfKvWUflkxqKSoeH95tJfc0OqOmfQZm369UE4Wsn-gYzCF5sp4/exec';
             
             let elements;
@@ -460,6 +461,7 @@
             async function initializePayment() {
                 try {
                     console.log('🔄 Initializing payment system...');
+                    console.log('📡 Using script URL:', scriptURL);
                     
                     // Get amount from hidden field or use default
                     const amountInput = document.querySelector('input[name="AmountCents"]');
@@ -469,52 +471,104 @@
 
                     // Create PaymentIntent via Google Apps Script
                     console.log('📡 Calling Google Apps Script...');
+                    
+                    const requestBody = new URLSearchParams({
+                        action: 'createPaymentIntent',
+                        amount: amount,
+                        currency: 'usd'
+                    });
+                    
+                    console.log('📡 Request body:', requestBody.toString());
+                    
                     const response = await fetch(scriptURL, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
-                        body: new URLSearchParams({
-                            action: 'createPaymentIntent',
-                            amount: amount,
-                            currency: 'usd'
-                        })
+                        body: requestBody
                     });
 
                     console.log('📡 Response status:', response.status);
+                    console.log('📡 Response ok:', response.ok);
                     
                     if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        const errorText = await response.text();
+                        console.error('📡 HTTP Error response:', errorText);
+                        throw new Error(`Google Apps Script error (${response.status}): ${errorText}. Please check if your script is deployed correctly.`);
                     }
 
                     const responseText = await response.text();
-                    console.log('📡 Raw response:', responseText);
+                    console.log('📡 Raw response text:', responseText);
+                    
+                    // Check if response is empty
+                    if (!responseText || responseText.trim() === '') {
+                        throw new Error('Empty response from Google Apps Script. Please check your script deployment and permissions.');
+                    }
                     
                     let result;
                     try {
                         result = JSON.parse(responseText);
                     } catch (parseError) {
                         console.error('❌ Failed to parse JSON response:', parseError);
-                        throw new Error('Invalid JSON response from server: ' + responseText);
+                        console.error('❌ Raw response was:', responseText);
+                        throw new Error('Invalid JSON response from Google Apps Script. Please check your script code and deployment.');
                     }
                     
                     console.log('📡 Parsed result:', result);
                     
                     if (result.error) {
-                        throw new Error(result.error);
+                        console.error('❌ Server returned error:', result.error);
+                        if (result.detail) {
+                            console.error('❌ Error details:', result.detail);
+                        }
+                        throw new Error(`Google Apps Script error: ${result.error}${result.detail ? ' - ' + result.detail : ''}`);
                     }
 
                     if (!result.clientSecret) {
-                        throw new Error('No clientSecret received from server');
+                        console.error('❌ No clientSecret in response. Full response:', result);
+                        throw new Error('No clientSecret received from Google Apps Script. Please check your STRIPE_SECRET configuration in Script Properties.');
+                    }
+
+                    if (!result.paymentIntentId) {
+                        console.error('❌ No paymentIntentId in response. Full response:', result);
+                        throw new Error('No paymentIntentId received from Google Apps Script.');
                     }
 
                     clientSecret = result.clientSecret;
                     paymentIntentId = result.paymentIntentId;
                     
                     console.log('✅ PaymentIntent created:', paymentIntentId);
-                    console.log('🔑 Client secret received (length):', clientSecret.length);
+                    console.log('🔑 Client secret format check:', clientSecret.substring(0, 20) + '...');
 
-                    // Only create Stripe Elements AFTER we have the clientSecret
+                    // Validate clientSecret format (should start with "pi_" and contain "_secret_")
+                    if (!clientSecret.startsWith('pi_') || !clientSecret.includes('_secret_')) {
+                        throw new Error(`Invalid clientSecret format received: ${clientSecret.substring(0, 30)}...`);
+                    }
+
+                    // Create Stripe Elements with the valid clientSecret
+                    await createStripeElements();
+                    
+                } catch (error) {
+                    console.error('❌ Payment initialization error:', error);
+                    loadingMessage.style.display = 'none';
+                    
+                    // Show detailed error message
+                    let errorMsg = error.message;
+                    if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+                        errorMsg = 'Network error: Unable to connect to payment system. Please check your internet connection and try again.';
+                    } else if (error.message.includes('CORS')) {
+                        errorMsg = 'CORS error: Google Apps Script may not be properly deployed. Please check deployment settings.';
+                    }
+                    
+                    showError('Failed to initialize payment system: ' + errorMsg);
+                }
+            }
+
+            // Create Stripe Elements (separated for cleaner error handling)
+            async function createStripeElements() {
+                try {
+                    console.log('🎨 Creating Stripe Elements...');
+                    
                     const appearance = {
                         theme: 'stripe',
                         variables: {
@@ -528,59 +582,58 @@
                         }
                     };
 
-                    console.log('🎨 Creating Stripe Elements...');
-                    
                     // Create Elements with the clientSecret
                     elements = stripe.elements({ 
                         appearance, 
                         clientSecret: clientSecret 
                     });
                     
-                    console.log('✅ Stripe Elements created');
+                    console.log('✅ Stripe Elements created successfully');
                     
                     // Create Payment Element
                     console.log('💳 Creating Payment Element...');
                     paymentElement = elements.create('payment');
                     
-                    console.log('💳 Mounting Payment Element...');
+                    console.log('💳 Mounting Payment Element to #payment-element...');
                     paymentElement.mount('#payment-element');
 
-                    // Handle payment element changes
+                    // Handle payment element events
                     paymentElement.on('change', (event) => {
+                        console.log('💳 Payment element change event:', event);
                         if (event.error) {
                             showPaymentError(event.error.message);
                         } else {
                             hidePaymentError();
                         }
                         
-                        // Enable submit button if ready
+                        // Enable submit button when payment method is complete
                         if (event.complete) {
                             submitBtn.disabled = false;
                             submitText.textContent = 'Complete Registration & Payment';
                         }
                     });
 
-                    // Handle mount success/error
+                    // Handle successful mount
                     paymentElement.on('ready', () => {
-                        console.log('✅ Payment Element ready');
+                        console.log('✅ Payment Element ready and displayed');
+                        loadingMessage.style.display = 'none';
+                        submitBtn.disabled = false;
+                        submitText.textContent = 'Complete Registration & Payment';
                     });
 
+                    // Handle mount errors
                     paymentElement.on('loaderror', (event) => {
                         console.error('❌ Payment Element load error:', event.error);
-                        showError('Payment element failed to load: ' + event.error.message);
+                        loadingMessage.style.display = 'none';
+                        showError('Payment form failed to load: ' + event.error.message);
                     });
 
-                    // Hide loading, enable form
-                    loadingMessage.style.display = 'none';
-                    submitBtn.disabled = false;
-                    submitText.textContent = 'Complete Registration & Payment';
-                    
-                    console.log('✅ Payment Element mounted successfully');
+                    console.log('✅ Payment Element setup completed');
                     
                 } catch (error) {
-                    console.error('❌ Payment initialization error:', error);
+                    console.error('❌ Stripe Elements creation error:', error);
                     loadingMessage.style.display = 'none';
-                    showError('Failed to initialize payment system: ' + error.message);
+                    showError('Failed to create payment form: ' + error.message);
                 }
             }
 
