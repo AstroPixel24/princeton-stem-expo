@@ -1398,3 +1398,47 @@ body {
         min-height: 280px;
     }
 }
+
+/* Payment Section Styles */
+#paymentSection {
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#stripeCheckoutBtn:hover {
+    background: #5a67d8 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 91, 255, 0.3);
+}
+
+/* Responsive payment grid */
+@media (max-width: 768px) {
+    #paymentSection div[style*="grid-template-columns: 1fr 1fr"] {
+        display: block !important;
+    }
+    
+    #paymentSection div[style*="grid-template-columns: 1fr 1fr"] > div {
+        margin-bottom: 1rem;
+    }
+    
+    #paymentSection div[style*="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #paymentSection div[style*="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+    }
+}
