@@ -464,8 +464,11 @@
                     // Get amount from hidden field or use default
                     const amountInput = document.querySelector('input[name="AmountCents"]');
                     const amount = amountInput ? amountInput.value : '2500'; // $25.00
+                    
+                    console.log('💰 Amount:', amount);
 
                     // Create PaymentIntent via Google Apps Script
+                    console.log('📡 Calling Google Apps Script...');
                     const response = await fetch(scriptURL, {
                         method: 'POST',
                         headers: {
@@ -478,18 +481,40 @@
                         })
                     });
 
-                    const result = await response.json();
+                    console.log('📡 Response status:', response.status);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const responseText = await response.text();
+                    console.log('📡 Raw response:', responseText);
+                    
+                    let result;
+                    try {
+                        result = JSON.parse(responseText);
+                    } catch (parseError) {
+                        console.error('❌ Failed to parse JSON response:', parseError);
+                        throw new Error('Invalid JSON response from server: ' + responseText);
+                    }
+                    
+                    console.log('📡 Parsed result:', result);
                     
                     if (result.error) {
                         throw new Error(result.error);
+                    }
+
+                    if (!result.clientSecret) {
+                        throw new Error('No clientSecret received from server');
                     }
 
                     clientSecret = result.clientSecret;
                     paymentIntentId = result.paymentIntentId;
                     
                     console.log('✅ PaymentIntent created:', paymentIntentId);
+                    console.log('🔑 Client secret received (length):', clientSecret.length);
 
-                    // Create Stripe Elements
+                    // Only create Stripe Elements AFTER we have the clientSecret
                     const appearance = {
                         theme: 'stripe',
                         variables: {
@@ -503,10 +528,21 @@
                         }
                     };
 
-                    elements = stripe.elements({ appearance, clientSecret });
+                    console.log('🎨 Creating Stripe Elements...');
+                    
+                    // Create Elements with the clientSecret
+                    elements = stripe.elements({ 
+                        appearance, 
+                        clientSecret: clientSecret 
+                    });
+                    
+                    console.log('✅ Stripe Elements created');
                     
                     // Create Payment Element
+                    console.log('💳 Creating Payment Element...');
                     paymentElement = elements.create('payment');
+                    
+                    console.log('💳 Mounting Payment Element...');
                     paymentElement.mount('#payment-element');
 
                     // Handle payment element changes
@@ -522,6 +558,16 @@
                             submitBtn.disabled = false;
                             submitText.textContent = 'Complete Registration & Payment';
                         }
+                    });
+
+                    // Handle mount success/error
+                    paymentElement.on('ready', () => {
+                        console.log('✅ Payment Element ready');
+                    });
+
+                    paymentElement.on('loaderror', (event) => {
+                        console.error('❌ Payment Element load error:', event.error);
+                        showError('Payment element failed to load: ' + event.error.message);
                     });
 
                     // Hide loading, enable form
