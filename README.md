@@ -70,7 +70,6 @@ pse/
 ├── schedule.html       # Schedule page
 ├── registration.html   # Registration page
 ├── resources.html      # Resources page
-├── contact.html        # Contact page
 ├── styles/
 │   └── style.css       # Main stylesheet
 ├── js/

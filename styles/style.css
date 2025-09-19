@@ -1398,3 +1398,90 @@ body {
         min-height: 280px;
     }
 }
+
+/* Sticky Notes Grid */
+.sticky-notes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+.sticky-note {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: rotate(-1deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sticky-note:nth-child(even) {
+    transform: rotate(1deg);
+    background: #dbeafe;
+    border-color: #3b82f6;
+}
+
+.sticky-note:nth-child(3n) {
+    background: #f0fdf4;
+    border-color: #22c55e;
+    transform: rotate(-0.5deg);
+}
+
+.sticky-note:nth-child(4n) {
+    background: #fdf2f8;
+    border-color: #ec4899;
+    transform: rotate(0.5deg);
+}
+
+.sticky-note:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.sticky-note h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+}
+
+.sticky-note p {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Responsive sticky notes */
+@media (max-width: 1024px) {
+    .sticky-notes-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sticky-notes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+    
+    .sticky-note {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-notes-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .sticky-note {
+        padding: 1rem;
+    }
+}
