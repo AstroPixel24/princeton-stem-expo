@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
       		    body: data,
 		})
                 .then(() => {
-      			showNotification('Registration form submitted successfully! You will receive payment instructions via email.', 'success');
+      			showNotification('Registration form submitted successfully! You will receive PayPal or Zelle payment instructions via email.', 'success');
 			// Reset form
                         this.reset();
                        	//teamInfo.style.display = 'none';
