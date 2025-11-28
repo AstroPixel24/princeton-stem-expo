@@ -3,39 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Princeton STEM Expo (PSE) - Empowering Young Minds</title>
+    <title>Princeton STEM Expo (PSE)</title>
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/pselogofinal.jpg">
+        <link rel="apple-touch-icon" href="images/pselogofinal.jpg">
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <h2>PSE</h2>
+                    <a href="index.html#home" class="logo-link" aria-label="Princeton STEM Expo home">
+                        <img src="images/pselogofinal.jpg" alt="Princeton STEM Expo logo" />
+                    </a>
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link active">Home</a>
+                        <a href="index.html#home" class="nav-link active">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link">About</a>
+                        <a href="index.html#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="workshops.html" class="nav-link">Workshops</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="schedule.html" class="nav-link">Schedule</a>
+                        <a href="index.html#schedule" class="nav-link">Schedule</a>
                     </li>
                     <li class="nav-item">
                         <a href="registration.html" class="nav-link">Registration</a>
                     </li>
                     <li class="nav-item">
-                        <a href="resources.html" class="nav-link">Resources</a>
+                        <a href="archive.html" class="nav-link">Archive</a>
                     </li>
                     <li class="nav-item">
-                        <a href="sponsors.html" class="nav-link">Sponsors</a>
+                        <a href="index.html#faq" class="nav-link">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sponsors" class="nav-link">Sponsors</a>
                     </li>
                 </ul>
                 <div class="hamburger">
@@ -49,12 +53,16 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
+    <section id="home" class="hero">
             <canvas id="fractalCanvas" class="fractal-canvas"></canvas>
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Princeton STEM Expo</h1>
-                    <p class="hero-tagline">Inaugural Competition - Empowering Young Minds Through Mathematics and STEM</p>
+                    <h1 class="hero-title">
+                        <span class="hero-initial">P</span>rinceton
+                        <span class="hero-initial">S</span>TEM
+                        <span class="hero-initial">E</span>xpo
+                    </h1>
+                    <p class="hero-tagline">Debut math + STEM expo for elementary and middle school students.</p>
                     <div class="hero-event-info">
                         <div class="event-date-location">
                             <div class="event-date">
@@ -63,17 +71,13 @@
                             </div>
                             <div class="event-location">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>Community Middle School</span>
+                                <span>Community Middle School, Plainsboro, NJ</span>
                             </div>
                         </div>
                     </div>
-                    <p class="hero-description">
-                        Join us for the inaugural Princeton STEM Expo - an exciting new annual STEM-focused event featuring mathematics competitions, 
-                        educational workshops, and inspiring speaker sessions designed for elementary and middle school students.
-                    </p>
                     <div class="hero-buttons">
-                        <a href="registration.html" class="btn btn-primary">Register Now</a>
-                        <a href="about.html" class="btn btn-secondary">Learn More</a>
+                        <a href="archive.html" class="btn btn-primary">View 2025 Archive</a>
+                        <a href="registration.html" class="btn btn-secondary">Get 2026 Updates</a>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -103,97 +107,218 @@
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="features">
+        <!-- Guest Speaker Section -->
+        <section class="speaker-highlight">
             <div class="container">
-                <h2 class="section-title">What Makes PSE Special</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <h3>Math Competitions</h3>
-                        <p>Individual and team-based mathematics competitions designed to challenge and inspire students at all levels.</p>
+                <div class="speaker-card">
+                    <div class="speaker-content">
+                        <p class="eyebrow">Featured Guest Speaker</p>
+                        <h2>Professor Po-Shen Loh</h2>
+                        <p class="speaker-description">World-renowned mathematician, Carnegie Mellon professor, and former coach of the USA IMO team joined us to deliver an inspiring session for students and parents.</p>
+                        <ul class="speaker-highlights">
+                            <li>Exclusive talk on creative problem solving</li>
+                            <li>Live Q&A tailored for young mathematicians</li>
+                            <li>Insights for parents on nurturing STEM talent</li>
+                        </ul>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Interactive Workshops</h3>
-                        <p>Hands-on STEM workshops led by experts, covering cutting-edge topics in science, technology, and engineering.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-microphone"></i>
-                        </div>
-                        <h3>Keynote Speakers</h3>
-                        <p>Inspiring talks from renowned STEM professionals, researchers, and innovators sharing their experiences.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3>Awards & Recognition</h3>
-                        <p>Celebrate achievements with awards ceremonies recognizing outstanding performance and innovation.</p>
+                    <div class="speaker-image">
+                        <img src="images/po-shen-loh.jpg" alt="Professor Po-Shen Loh" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Event Info Section -->
-        <section class="event-info">
-            <div class="container">
-                <div class="event-info-grid">
-                    <div class="event-details">
-                        <h2>Event Details</h2>
-                        <div class="detail-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <h4>Date</h4>
-                                <p>September 27, 2025</p>
+        <!-- About Section -->
+        <section id="about" class="page-section about-section">
+            <div class="page-content">
+                <div class="container">
+                    <div class="content-section about-grid">
+                        <div class="about-copy">
+                            <h2>About PSE</h2>
+                            <p>PSE debuted on September 27, 2025 as a West Windsor-Plainsboro HS North-run math and STEM showcase at Community Middle School, pairing an original contest with immersive sessions.</p>
+                            <div class="about-highlights">
+                                <h3>What you can expect</h3>
+                                <ul>
+                                    <li>Grade-specific math competition packed with original problems.</li>
+                                    <li>Session with Guest Speaker Professor Po-Shen Loh for parents and students.</li>
+                                    <li> Hands-on STEM workshops (including Rubik's cubes, cryptography, and Math bowl!) led by high school mentors.</li>
+                                    <li>Prizes, medals, and recognition for top scorers.</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Community Middle School</p>
-                            </div>
+                        <div class="about-quick-info">
+                            <h3>Quick Information</h3>
+                            <p>The inaugural PSE took place in person on one action-packed Saturday.</p>
+                            <dl class="quick-info-list">
+                                <div class="quick-info-row">
+                                    <dt>Date:</dt>
+                                    <dd>Saturday, September 27, 2025</dd>
+                                </div>
+                                <div class="quick-info-row">
+                                    <dt>Time:</dt>
+                                    <dd>9:30 AM – 4:20 PM ET (check-in through awards)</dd>
+                                </div>
+                                <div class="quick-info-row">
+                                    <dt>Location:</dt>
+                                    <dd>
+                                        <button type="button" class="location-trigger" aria-haspopup="dialog" aria-controls="locationModal">
+                                            Community Middle School, Plainsboro, NJ
+                                        </button>
+                                    </dd>
+                                </div>
+                                <div class="quick-info-row">
+                                    <dt>Eligibility:</dt>
+                                    <dd>Open to students in grades 3–8; all skill levels welcome</dd>
+                                </div>
+                                <div class="quick-info-row">
+                                    <dt>Registration:</dt>
+                                    <dd>Registration for 2025 has closed. Visit <a href="registration.html">registration</a> to join the interest list for the next Expo.</dd>
+                                </div>
+                                <div class="quick-info-row">
+                                    <dt>Results:</dt>
+                                    <dd>Podium highlights and full tests are available now on the <a href="archive.html">Archive</a> page.</dd>
+                                </div>
+                                <div class="quick-info-row">
+                                    <dt>Contact:</dt>
+                                    <dd>Email the organizers at <a href="mailto:princetonstemexpo@gmail.com">princetonstemexpo@gmail.com</a>.</dd>
+                                </div>
+                            </dl>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <div>
-                                <h4>Participants</h4>
-                                <p>Elementary & Middle School Students</p>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Duration</h4>
-                                <p>Full Day Event</p>
+                        <div class="about-stats">
+                            <div class="stats">
+                                <h2>PSE 2025 Highlights</h2>
+                                <div class="stat-item">
+                                    <div class="stat-number">350+</div>
+                                    <div class="stat-label">Participants</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">50+</div>
+                                    <div class="stat-label">Schools Represented</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">$3000+</div>
+                                    <div class="stat-label">In Prizes</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="stats">
-                        <h2>Our Vision for PSE 2025</h2>
-                        <div class="stat-item">
-                            <div class="stat-number">500+</div>
-                            <div class="stat-label">Expected Participants</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Target Schools</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">15+</div>
-                            <div class="stat-label">Planned Workshops</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">10+</div>
-                            <div class="stat-label">Expert Speakers</div>
+                    <div class="content-section event-photo about-photo">
+                        <img src="gallery/closing--2.jpg" alt="Closing session at Princeton STEM Expo" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="map-modal" id="locationModal" aria-hidden="true">
+            <div class="map-modal__overlay" data-map-close></div>
+            <div class="map-modal__content" role="dialog" aria-modal="true" aria-labelledby="locationModalTitle">
+                <button class="map-modal__close" type="button" aria-label="Close map" data-map-close>&times;</button>
+                <h3 id="locationModalTitle">Community Middle School</h3>
+                <p>95 Grovers Mill Rd, Plainsboro Township, NJ 08536</p>
+                <div class="map-modal__embed">
+                    <iframe
+                        src="https://www.google.com/maps?q=Community+Middle+School,+Plainsboro,+NJ&output=embed"
+                        width="600"
+                        height="450"
+                        style="border:0;"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedule Section -->
+        <section id="schedule" class="page-section schedule-section">
+            <div class="page-header">
+                <div class="container">
+                    <h2 class="page-title">Event Schedule Recap</h2>
+                    <p class="page-subtitle">See how we structured the inaugural PSE 2025 individual mathematics competition.</p>
+                    <div class="page-event-info">
+                        <div class="page-event-details">
+                            <div class="event-detail">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Saturday, September 27, 2025</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Community Middle School</span>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="container">
+                    <div class="content-section">
+                        <h2>Competition Schedule</h2>
+                        <p>Here’s how the 2025 day unfolded—packed with mathematics competition, workshops, and special presentations.</p>
+
+                        <div class="schedule-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Activity</th>
+                                        <th>Location</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>9:30 - 10:00 AM</td>
+                                        <td><strong>Check-in & Registration</strong><br>Pick up badges, materials, and competition packets</td>
+                                        <td>Main Lobby</td>
+                                        <td>All Participants</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10:10 - 10:40 AM</td>
+                                        <td><strong>Opening Ceremony</strong><br>Welcome and event overview</td>
+                                        <td>Main Auditorium</td>
+                                        <td>All Participants</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11:00 AM - 12:00 PM</td>
+                                        <td><strong>Mathematics Competition</strong><br>Individual competition test<br><em>Concurrent: Parent Po-Shen Loh Talk</em></td>
+                                        <td>Competition Rooms<br><em>Auditorium (Parents)</em></td>
+                                        <td>Students & Parents</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12:00 - 1:00 PM</td>
+                                        <td><strong>Lunch Break</strong><br>Refreshments and socializing</td>
+                                        <td>Cafeteria</td>
+                                        <td>All Participants</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1:15 - 2:00 PM</td>
+                                        <td><strong>Workshop Session 1</strong><br>Interactive STEM workshops and activities</td>
+                                        <td>Workshop Rooms</td>
+                                        <td>Choose Your Workshop</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2:10 - 2:55 PM</td>
+                                        <td><strong>Workshop Session 2</strong><br>Second round of interactive workshops</td>
+                                        <td>Workshop Rooms</td>
+                                        <td>Choose Your Workshop</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3:00 - 3:45 PM</td>
+                                        <td><strong>Special Presentation</strong><br>Po-Shen Loh talk for students</td>
+                                        <td>Main Auditorium</td>
+                                        <td>All Students</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3:55 - 4:20 PM</td>
+                                        <td><strong>Closing Ceremony</strong><br>Awards presentation and final remarks</td>
+                                        <td>Main Auditorium</td>
+                                        <td>All Participants</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -206,7 +331,7 @@
                 <div class="team-grid">
                     <div class="team-card">
                         <div class="team-image">
-                            <i class="fas fa-user-circle"></i>
+                            <img src="headshots/aldric.jpg" alt="Headshot of Aldric Benalan" loading="lazy">
                         </div>
                         <h3>Aldric Benalan</h3>
                         <p class="team-role">Tournament Director</p>
@@ -217,7 +342,7 @@
                     </div>
                     <div class="team-card">
                         <div class="team-image">
-                            <i class="fas fa-user-circle"></i>
+                            <img src="headshots/rithik.png" alt="Headshot of Rithik Gumpu" loading="lazy">
                         </div>
                         <h3>Rithik Gumpu</h3>
                         <p class="team-role">Tournament Director</p>
@@ -228,7 +353,7 @@
                     </div>
                     <div class="team-card">
                         <div class="team-image">
-                            <i class="fas fa-user-circle"></i>
+                            <img src="headshots/aahan.jpg" alt="Headshot of Aahan Mahakud" loading="lazy">
                         </div>
                         <h3>Aahan Mahakud</h3>
                         <p class="team-role">Tournament Director</p>
@@ -237,9 +362,9 @@
                             <a href="mailto:princetonstemexpo@gmail.com"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card team-card--centered">
                         <div class="team-image">
-                            <i class="fas fa-user-circle"></i>
+                            <img src="headshots/zeeshan.png" alt="Headshot of Zeeshan Shariff" loading="lazy">
                         </div>
                         <h3>Zeeshan Shariff</h3>
                         <p class="team-role">Operations Manager</p>
@@ -248,9 +373,9 @@
                             <a href="mailto:princetonstemexpo@gmail.com"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card team-card--centered">
                         <div class="team-image">
-                            <i class="fas fa-user-circle"></i>
+                            <img src="headshots/shiven.jpg" alt="Headshot of Shiven Mehta" loading="lazy">
                         </div>
                         <h3>Shiven Mehta</h3>
                         <p class="team-role">Outreach Manager</p>
@@ -260,6 +385,35 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="volunteer-section">
+                    <div class="volunteer-header">
+                        <h3>Volunteer Crew</h3>
+                        <p>Our all-star high school volunteers power check-in, scoring, workshop support, and logistics.</p>
+                    </div>
+                    <div class="volunteer-grid">
+                        <div class="volunteer-card"><span>Aditya Ravishankar</span></div>
+                        <div class="volunteer-card"><span>Aditya Senthil</span></div>
+                        <div class="volunteer-card"><span>Alicia Chen</span></div>
+                        <div class="volunteer-card"><span>Alex Zhong</span></div>
+                        <div class="volunteer-card"><span>Andrew Li</span></div>
+                        <div class="volunteer-card"><span>Anya Mahakud</span></div>
+                        <div class="volunteer-card"><span>Austin Xie</span></div>
+                        <div class="volunteer-card"><span>Ayan Banerjee</span></div>
+                        <div class="volunteer-card"><span>Dhruv Sharma</span></div>
+                        <div class="volunteer-card"><span>Donna Benalan</span></div>
+                        <div class="volunteer-card"><span>Eric Guo</span></div>
+                        <div class="volunteer-card"><span>Ethan Wang</span></div>
+                        <div class="volunteer-card"><span>Jason Liu</span></div>
+                        <div class="volunteer-card"><span>Krivi Partani</span></div>
+                        <div class="volunteer-card"><span>Lukas Hoover</span></div>
+                        <div class="volunteer-card"><span>Manthan Dixit</span></div>
+                        <div class="volunteer-card"><span>Sanjay Oruganti</span></div>
+                        <div class="volunteer-card"><span>Shiven Mehta</span></div>
+                        <div class="volunteer-card"><span>Sravya Mandapati</span></div>
+                        <div class="volunteer-card"><span>Will Luo</span></div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -267,9 +421,87 @@
         <section class="cta">
             <div class="container">
                 <div class="cta-content">
-                    <h2>Ready to Join the Inaugural PSE 2025?</h2>
-                    <p>Be part of history! Don't miss this opportunity to participate in our very first event, challenge yourself, learn from experts, and connect with fellow STEM enthusiasts.</p>
-                    <a href="registration.html" class="btn btn-primary">Register Now</a>
+                    <h2>Catch the Princeton STEM Expo 2025 Recap</h2>
+                    <p>Relive standout moments, review contest materials, and stay tuned as we plan what’s next for the Princeton STEM Expo community.</p>
+                    <a href="archive.html" class="btn btn-primary">Explore the Archive</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="faq-header">
+                    <p class="section-eyebrow">Questions? We've got answers</p>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Quick info covering the most common questions from families, students, and coaches</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Who can participate?</h3>
+                        <p>PSE welcomes students in grades 3-8. Each grade competes within its own division to keep the experience fair and fun.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the event schedule?</h3>
+                        <p>The full agenda, including the competition block, workshops, and keynote session, is available in the schedule section above.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do I register?</h3>
+                        <p>Registration for 2025 is closed, but you can visit the registration page to join the interest list and get notified when 2026 details go live.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do parents need to stay?</h3>
+                        <p>Parents and guardians are encouraged to attend Po-Shen Loh's talk and support their students, but on-site supervision is provided throughout the day.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Are there team events?</h3>
+                        <p>PSE 2025 focuses on individual competition. Collaborative workshops and networking opportunities round out the experience.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What should students bring?</h3>
+                        <p>Bring pencils, a notebook, and enthusiasm. Calculators are not required. Lunch and snacks will be provided.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="sponsors-section">
+            <div class="container">
+                <p class="section-eyebrow">Partners &amp; Supporters</p>
+                <h2 class="section-title">Thank You to Our Sponsors</h2>
+                <p class="section-subtitle">Their generosity powers scholarships, workshops, and the full competition experience.</p>
+
+                <div class="sponsor-tier sponsor-tier--platinum">
+                    <div class="tier-label">Platinum Sponsors</div>
+                    <div class="sponsor-logos">
+                        <div class="sponsor-logo-card" aria-label="AoPS Academy Princeton Platinum Sponsor">
+                            <img src="sponsors/aopsacademy.png" alt="AoPS Academy Princeton logo" loading="lazy">
+                            <p>AoPS Academy Princeton</p>
+                        </div>
+                        <div class="sponsor-logo-card" aria-label="Jane Street Platinum Sponsor">
+                            <img src="sponsors/janestreet.png" alt="Jane Street logo" loading="lazy">
+                            <p>Jane Street</p>
+                        </div>
+                        <div class="sponsor-logo-card" aria-label="LIVE by Po-Shen Loh Platinum Sponsor">
+                            <img src="sponsors/live.png" alt="LIVE by Po-Shen Loh logo" loading="lazy">
+                            <p>LIVE by Po-Shen Loh</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sponsor-tier sponsor-tier--gold">
+                    <div class="tier-label">Gold Sponsors</div>
+                    <div class="sponsor-logos">
+                        <div class="sponsor-logo-card" aria-label="JEI Learning Center Gold Sponsor">
+                            <img src="sponsors/jei.jpg" alt="JEI Learning Center logo" loadinaftg="lazy">
+                            <p>JEI Learning Center</p>
+                        </div>
+                        <div class="sponsor-logo-card" aria-label="Princeton College Consulting Gold Sponsor">
+                            <img src="sponsors/princetoncollegeconsulting.jpg" alt="Princeton College Consulting logo" loading="lazy">
+                            <p>Princeton College Consulting</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -285,10 +517,11 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#schedule">Schedule</a></li>
+                        <li><a href="index.html#sponsors">Sponsors</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
                         <li><a href="registration.html">Registration</a></li>
-                        <li><a href="resources.html">Resources</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">

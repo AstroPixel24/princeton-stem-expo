@@ -7,35 +7,39 @@
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/pselogofinal.jpg">
+    <link rel="apple-touch-icon" href="images/pselogofinal.jpg">
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <h2>PSE</h2>
+                    <a href="index.html#home" class="logo-link" aria-label="Princeton STEM Expo home">
+                        <img src="images/pselogofinal.jpg" alt="Princeton STEM Expo logo" />
+                    </a>
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="index.html#home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link">About</a>
+                        <a href="index.html#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="workshops.html" class="nav-link">Workshops</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="schedule.html" class="nav-link">Schedule</a>
+                        <a href="index.html#schedule" class="nav-link">Schedule</a>
                     </li>
                     <li class="nav-item">
                         <a href="registration.html" class="nav-link active">Registration</a>
                     </li>
                     <li class="nav-item">
-                        <a href="resources.html" class="nav-link">Resources</a>
+                        <a href="archive.html" class="nav-link">Archive</a>
                     </li>
                     <li class="nav-item">
-                        <a href="sponsors.html" class="nav-link">Sponsors</a>
+                        <a href="index.html#faq" class="nav-link">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#sponsors" class="nav-link">Sponsors</a>
                     </li>
                 </ul>
                 <div class="hamburger">
@@ -50,8 +54,12 @@
     <main>
         <section class="page-header">
             <div class="container">
+                <div class="status-pill status-pill-closed">
+                    <i class="fas fa-lock"></i>
+                    Registration Closed
+                </div>
                 <h1 class="page-title">Registration</h1>
-                <p class="page-subtitle">Join the inaugural PSE 2025 - Individual mathematics competition registration</p>
+                <p class="page-subtitle">PSE 2025 registration closed on September 20. Browse the 2025 recap and join the interest list below to be first in line for the 2026 launch.</p>
                 <div class="page-event-info">
                     <div class="page-event-details">
                         <div class="event-detail">
@@ -69,29 +77,60 @@
 
         <section class="page-content">
             <div class="container">
-                <!-- Registration Status -->
                 <div class="content-section">
-                    <div class="feature-card" style="text-align: center; background: linear-gradient(135deg, #10b981, #059669); color: white;">
-                        <h2 style="color: white; margin-bottom: 1rem;">Inaugural Event - Registration is Now Open!</h2>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Be part of history! Secure your spot for the first-ever PSE on September 27, 2025 at Community Middle School</p>
+                    <div class="info-banner info-banner-closed" role="status" aria-live="polite">
+                        <i class="fas fa-lock"></i>
+                        <div class="info-banner-content">
+                            <strong>PSE 2025 registration is officially closed.</strong>
+                            <p>We're finalizing updates for 2026. In the meantime, explore the <a href="archive.html">2025 archive</a> and drop your email in the <a href="https://forms.gle/21KcFwHVqBWhSR35A" target="_blank" rel="noopener noreferrer">interest form</a> to be first to hear when we reopen.</p>
+                        </div>
+                    </div>
+                    <div class="closure-card">
+                        <div class="closure-card-header">
+                            <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                            <div>
+                                <h3>What to expect next</h3>
+                                <p>Thank you for the overwhelming response to our inaugural year. Here's how to stay in the loop until registration reopens.</p>
+                            </div>
+                        </div>
+                        <ul class="closure-card-list">
+                            <li>
+                                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                Interest-list updates go out in early spring 2026 with exact dates and pricing.
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                Priority reminders are sent to families who submit the <a class="inline-pill-link" href="https://forms.gle/21KcFwHVqBWhSR35A" target="_blank" rel="noopener noreferrer" aria-label="interest form">official interest form</a>.
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                The registration form below stays locked so you can preview required information ahead of time.
+                            </li>
+                        </ul>
+                        <div class="closure-actions">
+                            <a class="closure-link" href="archive.html">
+                                <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
+                                View 2025 Results
+                            </a>
+                            <a class="closure-link closure-link-accent" href="https://forms.gle/21KcFwHVqBWhSR35A" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                Join the 2026 Interest List
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Registration Options -->
                 <div class="content-section">
-                    <h2>Individual Registration</h2>
-                    <div class="feature-card" style="text-align: center; background: linear-gradient(135deg, #f59e0b, #d97706); color: white; margin-bottom: 2rem;">
-                        <h3 style="color: white; margin-bottom: 1rem;">⚠️ Limited Spots Available</h3>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Registration is first-come, first-served. Secure your spot today!</p>
-                    </div>
-                    
+                    <h2>2025 Participation Snapshot</h2>
+                    <p>Thank you to every student, family, and volunteer who packed the inaugural Princeton STEM Expo. Below is a quick look at what the 2025 cohort experienced so you can plan ahead for 2026.</p>
                     <div class="features-grid">
                         <div class="feature-card">
                             <div class="feature-icon">
                                 <i class="fas fa-user"></i>
                             </div>
                             <h3>Student Registration</h3>
-                            <p>Register as a student to compete in the Princeton STEM Expo mathematics competition.</p>
+                            <p>Thanks to everyone who registered and made our debut competition a success.</p>
                             <ul style="text-align: left; margin: 1rem 0;">
                                 <li>Participate in the math competition for students across New Jersey</li>
                                 <li>Compete in your grade division (3rd, 4th, 5th, 6th, 7th, 8th)</li>
@@ -102,36 +141,36 @@
                             <div class="pricing">
                                 <div style="font-size: 1.5rem; font-weight: 700; color: #2563eb;">$25</div>
                             </div>
-                            <div style="margin-top: 1.5rem; padding: 1rem; background: #e0f2fe; border-radius: 8px; text-align: center;">
-                                <p style="color: #0277bd; font-weight: 600; margin: 0;">
-                                    <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
-                                    Payment via PayPal or Zelle only
-                                </p>
-                                <p style="color: #0277bd; font-size: 0.9rem; margin: 0.5rem 0 0 0;">
-                                    Instructions will be sent after registration
-                                </p>
-                            </div>
+                            <p style="margin-top: 1rem; color: #475569;">Returning soon: refreshed pricing and workshop details for the 2026 cycle.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Registration Form -->
                 <div class="content-section">
-                    <h2>Registration Form</h2>
+                    <h2>Registration Form (Archived Preview)</h2>
+                    <div class="alert-banner" style="padding: 1.25rem 1.5rem; border-radius: 16px; background: #fef2f2; border: 1px solid #fecaca; margin-bottom: 1.5rem;">
+                        <p style="margin: 0; color: #991b1b; font-weight: 600;">
+                            Registration closed on September 20, 2025. The form below is locked for reference only and cannot accept submissions.
+                        </p>
+                        <p style="margin: 0.35rem 0 0; color: #991b1b;">
+                            Add your email through the <a href="https://forms.gle/21KcFwHVqBWhSR35A" target="_blank" rel="noopener noreferrer" style="color: inherit; font-weight: 600; text-decoration: underline;">PSE 2026 interest form</a> for priority updates and revisit the <a href="archive.html" style="color: inherit; font-weight: 600; text-decoration: underline;">2025 archive</a> for results.
+                        </p>
+                    </div>
                     
                     <div class="form-container">
                         <!-- UPDATED FORM: Now properly submits to Google Apps Script -->
-                        <form id="registrationForm" method = "POST" action="https://script.google.com/macros/s/AKfycbyW4RoGyn6Ccgd0jRBfKvWUflkxqKSoeH95tJfc0OqOmfQZm369UE4Wsn-gYzCF5sp4/exec">
+                        <form id="registrationForm" method = "POST" action="https://script.google.com/macros/s/AKfycbyW4RoGyn6Ccgd0jRBfKvWUflkxqKSoeH95tJfc0OqOmfQZm369UE4Wsn-gYzCF5sp4/exec" aria-disabled="true">
                             <!-- Student Information -->
                             <h3>Student Information</h3>
                             <div class="form-group">
                                 <label for="studentName">Student Full Name *</label>
-                                <input type="text" id="studentName" name="Name" required>
+                                <input type="text" id="studentName" name="Name" required disabled>
                             </div>
 
                             <div class="form-group">
                                 <label for="grade">Grade Level *</label>
-                                <select id="grade" name="Grade" required>
+                                <select id="grade" name="Grade" required disabled>
                                     <option value="">Select grade</option>
                                     <option value="3">3rd Grade</option>
                                     <option value="4">4th Grade</option>
@@ -144,98 +183,92 @@
 
                             <div class="form-group">
                                 <label for="school">School Name *</label>
-                                <input type="text" id="school" name="School Name" required>
+                                <input type="text" id="school" name="School Name" required disabled>
                             </div>
 
                             <div class="form-group">
                                 <label for="studentEmail">Student Email</label>
-                                <input type="email" id="studentEmail" name="Student Email">
+                                <input type="email" id="studentEmail" name="Student Email" disabled>
                             </div>
 
                             <!-- Parent/Guardian Information -->
                             <h3>Parent/Guardian Information</h3>
                             <div class="form-group">
                                 <label for="parentName">Parent/Guardian Name *</label>
-                                <input type="text" id="parentName" name="Parent Name" required>
+                                <input type="text" id="parentName" name="Parent Name" required disabled>
                             </div>
 
                             <div class="form-group">
                                 <label for="parentEmail">Parent/Guardian Email *</label>
-                                <input type="email" id="parentEmail" name="Parent Email" required>
+                                <input type="email" id="parentEmail" name="Parent Email" required disabled>
                             </div>
 
                             <div class="form-group">
                                 <label for="parentPhone">Parent/Guardian Phone *</label>
-                                <input type="tel" id="parentPhone" name="Parent Phone" required>
+                                <input type="tel" id="parentPhone" name="Parent Phone" required disabled>
                             </div>
 
                             <!-- Emergency Contact -->
                             <h3>Emergency Contact</h3>
                             <div class="form-group">
                                 <label for="emergencyName">Emergency Contact Name *</label>
-                                <input type="text" id="emergencyName" name="Emergency Contact Name" required>
+                                <input type="text" id="emergencyName" name="Emergency Contact Name" required disabled>
                             </div>
 
                             <div class="form-group">
                                 <label for="emergencyPhone">Emergency Contact Phone *</label>
-                                <input type="tel" id="emergencyPhone" name="Emergency Contact Phone" required>
+                                <input type="tel" id="emergencyPhone" name="Emergency Contact Phone" required disabled>
                             </div>
 
                             <div class="form-group">
                                 <label for="emergencyRelation">Relationship to Student *</label>
-                                <input type="text" id="emergencyRelation" name="Relationship to Student" required>
+                                <input type="text" id="emergencyRelation" name="Relationship to Student" required disabled>
                             </div>
 
                             <!-- Additional Information -->
                             <h3>Additional Information</h3>
                             <div class="form-group">
                                 <label for="dietary">Dietary Restrictions/Food Allergies</label>
-                                <textarea id="dietary" name="Dietary Info" placeholder="Please list any dietary restrictions, food allergies, or special meal requirements"></textarea>
+                                <textarea id="dietary" name="Dietary Info" placeholder="Please list any dietary restrictions, food allergies, or special meal requirements" disabled></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="medical">Medical Conditions/Accommodations</label>
-                                <textarea id="medical" name="Medical Conditions" placeholder="Please describe any medical conditions, learning accommodations, or special needs"></textarea>
+                                <textarea id="medical" name="Medical Conditions" placeholder="Please describe any medical conditions, learning accommodations, or special needs" disabled></textarea>
                             </div>
 
                             <!-- Agreements & Permissions -->
                             <h3>Agreements & Permissions</h3>
                             <div class="form-group">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="liability" name="Liability Waiver" required>
+                                    <input type="checkbox" id="liability" name="Liability Waiver" required disabled>
                                     <label for="liability">I agree to the liability waiver and understand that participation is at my own risk. *</label>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="photography" name="Photography Permission">
+                                    <input type="checkbox" id="photography" name="Photography Permission" disabled>
                                     <label for="photography">I give permission for photographs taken during the event to be used for promotional purposes.</label>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="communication" name="Communication Permission">
+                                    <input type="checkbox" id="communication" name="Communication Permission" disabled>
                                     <label for="communication">I would like to receive updates about future PSE events and STEM opportunities.</label>
                                 </div>
                             </div>
 
                             <!-- Submit Button -->
                             <div class="form-group">
-                                <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Complete Registration</button>
+                                <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;" disabled>Registration Closed</button>
                             </div>
 
                             <p style="font-size: 0.9rem; color: #64748b; text-align: center; margin-top: 1rem;">
-                                Please wait a few seconds for the submission to go through. After submitting this form, you will receive PayPal or Zelle payment instructions via email within 1-2 business days. The registration fee is $25 per student. Registration is not complete until payment is received.
+                                Payment instructions and confirmation emails will resume when registration reopens.
                             </p>
                             
-                            <div style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 1rem; margin-top: 1rem; text-align: center;">
-                                <p style="color: #856404; margin: 0; font-weight: 600; font-size: 0.9rem;">
-                                    <i class="fas fa-exclamation-triangle" style="margin-right: 0.5rem;"></i>
-                                    PAYMENT METHODS: PayPal or Zelle ONLY
-                                </p>
-                            </div>
                         </form>
                         
                         <!-- Success message -->
@@ -272,86 +305,6 @@
                     </div>
                 </div>
 
-                <!-- Eligibility & Requirements -->
-                <div class="content-section">
-                    <h2>Eligibility & Requirements</h2>
-                    
-                    <h3>Who Can Participate</h3>
-                    <ul>
-                        <li>Current elementary school students (grades 3-5)</li>
-                        <li>Current middle school students (grades 6-8)</li>
-                        <li>Students must be enrolled in school for the 2024-2025 academic year</li>
-                        <li>Homeschooled students are welcome</li>
-                    </ul>
-
-                    <h3>Required Documentation</h3>
-                    <ul>
-                        <li>Completed registration form with parent/guardian signature</li>
-                        <li>Proof of grade level (report card or school verification)</li>
-                        <li>Photo ID on day of event</li>
-                        <li>Completed liability waiver</li>
-                    </ul>
-
-                    <h3>Competition Format</h3>
-                    <ul>
-                        <li>Individual competition only - no team rounds</li>
-                        <li>Students compete in their appropriate grade division</li>
-                        <li>Elementary Division: Grades 3-5</li>
-                        <li>Middle School Division: Grades 6-8</li>
-                    </ul>
-                </div>
-
-                <!-- Payment Information -->
-                <div class="content-section">
-                    <h2>Payment Information</h2>
-                    
-                    <h3>Payment Methods</h3>
-                    <div style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 1.5rem; margin: 1rem 0;">
-                        <h4 style="color: #856404; margin-bottom: 1rem;">
-                            <i class="fas fa-exclamation-circle" style="margin-right: 0.5rem;"></i>
-                            IMPORTANT: Payment Options
-                        </h4>
-                        <p style="color: #856404; margin-bottom: 1rem; font-weight: 500;">
-                            We ONLY accept the following payment methods:
-                        </p>
-                        <ul style="color: #856404; margin: 0; padding-left: 1.5rem;">
-                            <li><strong>PayPal:</strong> Send payment to princetonstemexpo@gmail.com</li>
-                            <li><strong>Zelle:</strong> Send payment to 609-937-2659</li>
-                        </ul>
-                        <p style="color: #856404; margin-top: 1rem; font-size: 0.9rem; font-style: italic;">
-                            We do NOT accept credit cards, checks, or any other payment methods.
-                        </p>
-                    </div>
-
-                    <h3>Pricing</h3>
-                    <ul>
-                        <li><strong>Registration Fee:</strong> $25 per student</li>
-                        <li><strong>Payment Methods:</strong> PayPal or Zelle ONLY</li>
-                    </ul>
-
-                    <h3>Refund Policy</h3>
-                    <ul>
-                        <li><strong>Full Refund:</strong> Cancellations before September 1, 2025</li>
-                        <li><strong>50% Refund:</strong> Cancellations September 2 - September 15, 2025</li>
-                        <li><strong>No Refund:</strong> Cancellations after September 15, 2025</li>
-                        <li><strong>Emergency Situations:</strong> Refunds considered on case-by-case basis</li>
-                    </ul>
-
-                    <h3>Financial Assistance</h3>
-                    <p>Limited scholarships are available for students with demonstrated financial need. Contact us at <a href="mailto:princetonstemexpo@gmail.com">princetonstemexpo@gmail.com</a> for more information.</p>
-                </div>
-
-                <!-- Contact Information -->
-                <div class="content-section">
-                    <h2>Registration Questions?</h2>
-                    <p>If you have questions about registration, please don't hesitate to contact us:</p>
-                    
-                    <div class="feature-card" style="background: #f8fafc;">
-                        <h3>Registration Support</h3>
-                        <p><strong>Email:</strong> <a href="mailto:princetonstemexpo@gmail.com">princetonstemexpo@gmail.com</a></p>
-                        <p>We typically respond to emails within 24 hours during business days.</p>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -366,10 +319,9 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#schedule">Schedule</a></li>
                         <li><a href="registration.html">Registration</a></li>
-                        <li><a href="resources.html">Resources</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">

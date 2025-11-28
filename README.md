@@ -9,6 +9,7 @@ A modern, responsive website for the Princeton STEM Expo - an annual mathematics
 - Event highlights and statistics
 - Call-to-action buttons for registration
 - Feature cards showcasing competition aspects
+- FAQ section answering common registration and logistics questions
 
 ### 📖 About Page
 - Detailed event mission and vision
@@ -33,12 +34,6 @@ A modern, responsive website for the Princeton STEM Expo - an annual mathematics
 - Study guides and preparation materials
 - Coach resources and teaching materials
 - FAQ sections and external resources
-
-### 📞 Contact Page
-- Contact form with inquiry categorization
-- Comprehensive contact information
-- Social media links
-- Emergency contact details
 
 ## Technical Features
 
@@ -162,7 +157,6 @@ Extend JavaScript in `script.js` for additional interactive features.
 For questions about this website or the Princeton STEM Expo:
 
 - **Email**: admin@princetonstem.org
-- **Phone**: (609) 555-0123
 
 ## License
 
