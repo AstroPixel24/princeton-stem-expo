@@ -117,7 +117,8 @@ body {
 /* Hero Section */
 .hero {
     margin-top: 80px;
-    min-height: 58vh;
+    min-height: 72vh;
+    padding: 140px 0 120px;
     display: flex;
     align-items: center;
     background: 
@@ -171,14 +172,14 @@ body {
     padding: 0 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
     position: relative;
     z-index: 3;
 }
 
 .hero-title {
-    font-size: clamp(3.2rem, 5vw, 5rem);
+    font-size: clamp(3.4rem, 5.5vw, 5.6rem);
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.05;
@@ -410,8 +411,8 @@ body {
 }
 
 .hero-graphic {
-    width: 400px;
-    height: 400px;
+    width: 460px;
+    height: 460px;
     position: relative;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
     border-radius: 50%;
@@ -2097,12 +2098,12 @@ body.modal-open {
 
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
         text-align: center;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
     .event-date-location {
@@ -2123,12 +2124,16 @@ body.modal-open {
     }
 
     .hero-graphic {
-        width: 280px;
-        height: 280px;
+        width: 320px;
+        height: 320px;
         border: 1px solid rgba(255, 255, 255, 0.25);
         box-shadow: 
             0 0 20px rgba(255, 255, 255, 0.15),
             inset 0 0 20px rgba(255, 255, 255, 0.08);
+    }
+
+    .hero {
+        padding: 120px 0 100px;
     }
 
     .symbol {
